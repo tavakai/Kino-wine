@@ -25,5 +25,7 @@ module.exports = {
     'react/prop-types': 0,
     'import/no-extraneous-dependencies': 0,
     'react/react-in-jsx-scope': 0,
+    'no-unused-vars': 0,
+    semi: 0,
   },
 };

@@ -19,7 +19,7 @@ function Register() {
   };
   const submit = (e) => {
     e.preventDefault();
-    // dispatch(regUserAction(validateForm.values));
+    dispatch(regUserAction(validateForm.values));
   };
 
   return (

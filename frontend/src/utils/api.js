@@ -24,9 +24,9 @@ class Api {
     return axios.get(`${this.baseUrl}/logout`)
   }
 
-  // Регистрация пользователя
+  // Проверка на авторизацию при первой загрузке приложения
   authCheck() {
-    return axios.post(`${this.baseUrl}/auth-check`)
+    return axios.post(`${this.baseUrl}/check`)
   }
 
   // Редактировать профиль пользователя

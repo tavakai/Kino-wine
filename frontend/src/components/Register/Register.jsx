@@ -1,12 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import useFormWithValidation from '../../hooks/useFormValidation';
 import { regUserAction } from '../../services/actions/actions';
 import s from './Register.module.css';
 
 function Register() {
   const dispatch = useDispatch();
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
   const validateForm = useFormWithValidation();
   const handleChangeName = (e) => {
     validateForm.handleChange(e);
@@ -21,6 +23,11 @@ function Register() {
     e.preventDefault();
     dispatch(regUserAction(validateForm.values));
   };
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/');
+    }
+  }, [isLoggedIn]);
 
   return (
     <section className="register">

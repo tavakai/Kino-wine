@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import useFormWithValidation from '../../hooks/useFormValidation';
-// import { authUserAction } from '../../services/actions/actions';
+import { authUserAction } from '../../services/actions/actions';
 import s from './Login.module.css';
 
 function Login() {
@@ -19,14 +19,14 @@ function Login() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch(authUserAction(validateForm.values));
+    dispatch(authUserAction(validateForm.values));
   };
 
-  // useEffect(() => {
-  //   if (isLoggedIn) {
-  //     navigate('/');
-  //   }
-  // }, [isLoggedIn]);
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/');
+    }
+  }, [isLoggedIn]);
 
   return (
     <section className={s.login}>

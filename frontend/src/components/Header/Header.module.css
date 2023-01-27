@@ -1,6 +1,6 @@
 .nav {
   margin: 0px 70px 0px 70px;
-  padding: 30px 0px 40px 0px;
+  padding: 15px 0px 40px 0px;
   background-color: #1f1b2e;
 }
 .nav__logo-main {
@@ -12,7 +12,8 @@
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
 }
 .nav__item {
   font-weight: 400;
@@ -31,7 +32,7 @@
 .nav__link {
   text-decoration: none;
   color: rgba(255,255,255,.48);
-  font-size: 16px;
+  font-size: 18px;
   padding: 28px 0px 4px 0px;
   cursor: pointer;
   color: ghostwhite;
@@ -56,10 +57,14 @@
   line-height: 18px;
   display: none;
 }
+.nav__logo {
+  max-width: 48px;
+  width: 100%;
+}
 .nav__btn {
-  width: 100px;
+  /* width: 100px; */
   height: 32px;
-  background: #FFFFFF;
+  background: #5a556d;
   box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.08);
   border-radius: 40px;
   border: none;
@@ -73,22 +78,27 @@
   font-weight: 500;
   font-size: 13px;
   line-height: 12px;
-  color: #000000;
+  color: ghostwhite;
   padding-left: 11px;
   cursor: pointer;
+}
+.nav__btn_text {
+  color: ghostwhite;
+  text-decoration: none;
+  font-size: 14px;
 }
 .nav__btn:hover {
   box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.15);
 }
-.nav__btn-icon {
-  width: 11px;
+.nav__btn_icon {
+  width: 22px;
   position: absolute;
-  top: 7.75px;
-  left: 7.81px;
+  top: 1.75px;
+  left: 2.6px;
 }
 .nav__icon_wrapper {
   border-radius: 50%;
-  background: #F9F9F9;
+  /* background: #F9F9F9; */
   width: 26px;
   height: 26px;
   position: relative;

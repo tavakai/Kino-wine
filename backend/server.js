@@ -5,8 +5,6 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const userRouter = require('./src/Routes/userRouter');
 
-
-
 const app = express();
 
 require('dotenv').config();
@@ -35,8 +33,6 @@ app.use(
     },
   }),
 );
-
-
 
 app.use('/', userRouter);
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));

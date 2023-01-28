@@ -9,11 +9,10 @@ function Header() {
   const { user, isLoggedIn } = useSelector((state) => state.auth);
   return (
     <nav className={s.nav}>
-      <ul className={s.nav__bar}>
-        {
+      {
           isLoggedIn
             ? (
-              <>
+              <ul className={s.nav__bar}>
                 <li className={s.nav__item}>
                   <NavLink to="/" className={s.nav__logo}>
                     <img src={logo} className={s.nav__logo} alt="logo icon movie" />
@@ -46,7 +45,7 @@ function Header() {
                     </button>
                   </Link>
                 </li>
-              </>
+              </ul>
             ) : (
               <ul className={s.nav__bar}>
                 <li className={s.nav__item}>
@@ -58,7 +57,6 @@ function Header() {
               </ul>
             )
         }
-      </ul>
     </nav>
   );
 }

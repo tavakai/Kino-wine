@@ -4,9 +4,9 @@ import { Route, Routes } from 'react-router-dom';
 import { authCheckAction } from '../../services/actions/actions';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
+import Main from '../Main/Main';
 import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
-import Slider from '../Slider/Slider';
 import s from './App.module.css';
 
 function App() {
@@ -19,8 +19,8 @@ function App() {
   return (
     <div className={s.App}>
       <Header />
-      <Slider />
       <Routes>
+        <Route path="/" element={<Main />} />
         <Route path="/auth" element={<Login />} />
         <Route path="/reg" element={<Register />} />
         <Route path="/profile" element={<Profile />} />

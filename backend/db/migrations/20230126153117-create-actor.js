@@ -12,6 +12,12 @@ module.exports = {
       fullname: {
         type: Sequelize.STRING
       },
+      image: {
+        type: Sequelize.TEXT
+      },
+      kp_id: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

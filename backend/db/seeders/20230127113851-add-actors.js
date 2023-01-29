@@ -7,7 +7,9 @@ module.exports = {
     await queryInterface.bulkInsert(
       'Actors',
       array.map((actor) => ({
-        fullname: actor,
+        fullname: actor.fullname,
+        image: actor.image,
+        kp_id: actor.kp_id,
       })),
       {},
     );

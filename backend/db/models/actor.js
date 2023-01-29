@@ -15,6 +15,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Actor.init({
     fullname: DataTypes.STRING,
+    image: DataTypes.TEXT,
+    kp_id: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Actor',

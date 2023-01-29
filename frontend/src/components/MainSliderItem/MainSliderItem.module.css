@@ -18,7 +18,7 @@
 }
 .poster__title {
   font-size: 56px;
-  line-height: 22px;
+  line-height: 1;
   font-weight: 600;
   font-style: normal;
   z-index: 1;

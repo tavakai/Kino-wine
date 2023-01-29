@@ -1,19 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-export default function Player() {
-  function PlayerjsAsync(src) {
+export default function Player({ onefilm }) {
+  console.log(onefilm.path_trailer, 'onefilm');
+  console.log(onefilm.image, 'onef onefilm.imageilm');
+  const [clickVideo, setClickVideo] = useState('');
+  function PlayerjsAsync() {
     const player = new Playerjs({
       id: 'player',
-      file: 'https://https://cloud.mail.ru/home/OperationFortune_TLR.mp4',
-      poster: 'https://mirpozitiva.ru/wp-content/uploads/2019/11/1472042660_10.jpg',
+      file: onefilm.path_trailer,
+      autoplay: onefilm.path_trailer ? 1 : 0,
+      poster: onefilm.image,
 
     });
   }
+  // const clickHandler = (e) => {
+  //   setClickVideo(e.target.name);
+  // };
 
   useEffect(() => {
-    PlayerjsAsync();
-  }, []);
+    PlayerjsAsync(onefilm.path_trailer);
+  }, [onefilm.path_trailer]);
   return (
-    <div id="player" />
+    <div style={{ width: '500px', height: '500px' }}>
+      <div id="player" />
+    </div>
   );
 }

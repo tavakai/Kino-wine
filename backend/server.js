@@ -4,6 +4,7 @@ const cors = require('cors');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const userRouter = require('./src/Routes/userRouter');
+const descriptionRouter = require('./src/Routes/descriptionRouter');
 const genresRouter = require('./src/Routes/genresRouter');
 const moviesRouter = require('./src/Routes/moviesRouter');
 const favoritesRouter = require('./src/Routes/favoritesRouter');
@@ -36,7 +37,7 @@ app.use(
     },
   }),
 );
-
+app.use('/film', descriptionRouter);
 app.use('/', userRouter);
 app.use('/genres', genresRouter);
 app.use('/movies', moviesRouter);

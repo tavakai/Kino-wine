@@ -40,6 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     similarMovies: DataTypes.TEXT,
     actors: DataTypes.TEXT,
     subscription: DataTypes.BOOLEAN,
+    isRecommended: DataTypes.BOOLEAN,
   }, {
     sequelize,
     modelName: 'Movie',

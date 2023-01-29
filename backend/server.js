@@ -4,6 +4,9 @@ const cors = require('cors');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const userRouter = require('./src/Routes/userRouter');
+const genresRouter = require('./src/Routes/genresRouter');
+const moviesRouter = require('./src/Routes/moviesRouter');
+const favoritesRouter = require('./src/Routes/favoritesRouter');
 
 const app = express();
 
@@ -35,4 +38,7 @@ app.use(
 );
 
 app.use('/', userRouter);
+app.use('/genres', genresRouter);
+app.use('/movies', moviesRouter);
+app.use('/favorite', favoritesRouter);
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));

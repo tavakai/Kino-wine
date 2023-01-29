@@ -68,6 +68,9 @@ module.exports = {
       subscription: {
         type: Sequelize.BOOLEAN,
       },
+      isRecommended: {
+        type: Sequelize.BOOLEAN,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

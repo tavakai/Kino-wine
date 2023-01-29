@@ -17,6 +17,9 @@ module.exports = {
           key: 'id',
         },
       },
+      kp_id: {
+        type: Sequelize.INTEGER,
+      },
       title: {
         type: Sequelize.STRING,
       },
@@ -45,10 +48,22 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       rating: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       fees: {
         type: Sequelize.STRING,
+      },
+      ageRating: {
+        type: Sequelize.INTEGER,
+      },
+      productionCompanies: {
+        type: Sequelize.STRING,
+      },
+      similarMovies: {
+        type: Sequelize.TEXT,
+      },
+      actors: {
+        type: Sequelize.TEXT,
       },
       subscription: {
         type: Sequelize.BOOLEAN,

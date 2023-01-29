@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Movie.init({
     type_id: DataTypes.INTEGER,
+    kp_id: DataTypes.INTEGER,
     title: DataTypes.STRING,
     year: DataTypes.INTEGER,
     description: DataTypes.TEXT,
@@ -32,7 +33,12 @@ module.exports = (sequelize, DataTypes) => {
     path_video: DataTypes.TEXT,
     path_trailer: DataTypes.TEXT,
     duration: DataTypes.INTEGER,
-    rating: DataTypes.INTEGER,
+    rating: DataTypes.STRING,
+    fees: DataTypes.STRING,
+    ageRating: DataTypes.INTEGER,
+    productionCompanies: DataTypes.STRING,
+    similarMovies: DataTypes.TEXT,
+    actors: DataTypes.TEXT,
     subscription: DataTypes.BOOLEAN,
   }, {
     sequelize,

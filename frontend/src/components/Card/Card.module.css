@@ -1,0 +1,40 @@
+.card__wrapper {
+  width: 100%;
+  border-radius: 15px;
+  position: relative;
+}
+.card__wrapper_horizontal {
+  max-width: 320px;
+}
+.card__wrapper_vertical {
+  max-width: 185px;
+}
+.card__link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+.card__image_wrapper {
+  width: 100%;
+  object-fit: contain;
+}
+.card__image {
+  width: 100%;
+  border-radius: 15px;
+}
+.card__rate {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  color: #fff;
+  font-weight: 400;
+  background-color: #ea003d;
+  border-radius: 15px;
+}
+.card__detail_title {
+  color: gainsboro;
+  text-align: left;
+}

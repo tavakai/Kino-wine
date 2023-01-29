@@ -16,12 +16,34 @@ code {
     monospace;
 }
 
+.mySwiperMain {
+  height: 20px;
+}
+
+.swiper_categories {
+  height: 300px!important;
+  max-width: 1120px;
+  width: 100%;
+  z-index: 2;
+  padding: 39px!important;
+}
+.swiper_categories .swiper {
+  padding: 50px!important;
+}
+.swiper_categories .swiper-slide.swiper-slide-duplicate.swiper-slide-prev {
+  display: hidden;
+}
+
+.swiper_categories > .swiper-slide-duplicate .swiper-slide-duplicate-prev {
+  display: hidden;
+}
+
 .swiper {
   width: 100%;
   height: 100%;
 }
 
-.swiper-slide {
+.mySwiperMain .swiper-slide {
   text-align: center;
   font-size: 18px;
   /* background: #fff; */
@@ -41,10 +63,10 @@ code {
   align-items: center;
 }
 
-.swiper-slide img {
+.swiper_categories img {
   display: block;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   object-fit: contain;
 }
 
@@ -53,22 +75,21 @@ code {
   margin-right: auto;
 }
 
-.swiper-slide img {
+.mySwiperMain img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover!important;
   border-radius: 15px;
 }
-.swiper-slide {
+/* .swiper-slide {
   transition: all 0.5s ease;
   padding: 0px!important;
   flex-shrink: 0;
-  /* width: 101.5%!important; */
   height: 100%;
   position: relative;
   transition-property: transform;
-} 
+}  */
 .swiper-button-next, .swiper-button-prev {
   color: gainsboro!important;
 }
@@ -81,21 +102,28 @@ code {
   margin-right: 30px!important;
 }
 
-.swiper-button-prev, .swiper-rtl .swiper-button-next {
+.mySwiperMain > .swiper-button-prev, .swiper-rtl {
   left: 23%!important;
   right: auto;
 }
-.swiper-button-next, .swiper-rtl .swiper-button-prev {
+.mySwiperMain > .swiper-button-next, .swiper-rtl {
   right: 23%!important;
   left: auto;
 }
-
-.swiper-slide-active {
-  position: relative;
+.swiper_categories > .swiper-button-prev, .swiper-rtl {
+  left: 0%!important;
+  top: 36%!important;
+  right: auto;
 }
-.swiper-slide.swiper-slide-prev {
+.swiper_categories > .swiper-button-next, .swiper-rtl {
+  right: 0%!important;
+  top: 36%!important;
+  left: auto;
+}
+
+.swiper-slide.swiper-slide-prev-main {
   opacity: .2!important;
 }
-.swiper-slide.swiper-slide-next {
+.swiper-slide.swiper-slide-next-main {
   opacity: .2!important;
 }

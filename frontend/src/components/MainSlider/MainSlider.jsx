@@ -9,10 +9,10 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { Navigation, Controller } from 'swiper';
-import Poster from '../Poster/Poster';
-import s from './Slider.module.css';
+import MainSliderItem from '../MainSliderItem/MainSliderItem';
+import s from './MainSlider.module.css';
 
-export default function Slider() {
+export default function MainSlider() {
   const mokData = [
     {
       id: '123',
@@ -49,11 +49,16 @@ export default function Slider() {
         navigation
         loop
         modules={[Navigation, Controller]}
+        slideNextClass="swiper-slide-next-main"
+        slidePrevClass="swiper-slide-prev-main"
+        nextEl="swiper-button-next-main"
+        prevEl="swiper-button-prev-main"
+        className="mySwiperMain"
       >
         {
           mokData.map((el) => (
             <SwiperSlide key={el.id}>
-              <Poster movie={el} />
+              <MainSliderItem movie={el} />
             </SwiperSlide>
           ))
         }

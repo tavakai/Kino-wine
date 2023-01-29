@@ -1,7 +1,7 @@
 import React from 'react';
-import s from './Poster.module.css';
+import s from './MainSliderItem.module.css';
 
-function Poster({ movie }) {
+function MainSliderItem({ movie }) {
   const { title, description, poster } = movie;
   return (
     <div className={s.poster__wrapper}>
@@ -19,4 +19,4 @@ function Poster({ movie }) {
   );
 }
 
-export default Poster;
+export default MainSliderItem;

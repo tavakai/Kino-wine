@@ -9,6 +9,7 @@ async function getIds() {
 }
 
 const genres = ['фантастика', 'боевик', 'триллер', 'приключения', 'мелодрама', 'комедия', 'семейный', 'музыка', 'драма', 'детектив', 'криминал', 'фэнтези', 'спорт', 'биография', 'история', 'военный', 'ужасы', 'вестерн', 'фильм-нуар', 'мюзикл', 'аниме', 'мультфильм'];
+const recIds = [298, 301, 312, 314, 322, 325, 328, 338, 361, 370];
 
 const getData = async () => {
   const results = [];
@@ -63,6 +64,7 @@ const getData = async () => {
       similarMovies: JSON.stringify(res.similarMovies) || '',
       actors: JSON.stringify(resActors) || '',
       subscription: true,
+      isRecommended: recIds.includes(res.id) || false,
     });
 
     genres.map((genre, ind) => {

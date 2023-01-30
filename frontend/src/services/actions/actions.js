@@ -6,7 +6,7 @@ import {
   IS_LOADING_TRUE,
   IS_LOADING_FALSE,
   USER_EDIT,
-  GET_MOVIES,
+  GET_MOVIES_FOR_MAIN,
   GET_FILTER,
   RESET_LIST,
   LIKE_TOGGLE,
@@ -21,10 +21,8 @@ export const authCheck = (payload) => ({ type: AUTH_CHECK, payload });
 export const isLoadingTrue = () => ({ type: IS_LOADING_TRUE });
 export const isLoadingFalse = () => ({ type: IS_LOADING_FALSE });
 export const userChange = (payload) => ({ type: USER_EDIT, payload });
-export const getMovies = (payload) => ({ type: GET_MOVIES, payload });
+export const getMoviesForMain = (payload) => ({ type: GET_MOVIES_FOR_MAIN, payload });
 export const getCategoryList = (payload) => ({ type: GET_FILTER, payload });
-export const resetList = () => ({ type: RESET_LIST });
-export const setLike = (payload) => ({ type: LIKE_TOGGLE, payload });
 
 // Creators
 
@@ -68,17 +66,17 @@ export const isLoadingFalseAction = () => (dispatch) => {
 };
 
 // Data
-export const getMoivesAction = () => (dispatch) => {
-  dispatch(isLoadingTrue());
-  api.getMovies().then((res) => {
-    dispatch(getMovies(res.data));
+export const getMoviesForMainAction = () => (dispatch) => {
+  // dispatch(isLoadingTrue());
+  api.getMoviesForMain().then((res) => {
+    dispatch(getMoviesForMain(res.data));
   })
     .catch((err) => {
       console.log(err);
-      dispatch(isLoadingFalse());
+      // dispatch(isLoadingFalse());
     })
     .finally(() => {
-      dispatch(isLoadingFalse());
+      // dispatch(isLoadingFalse());
     });
 };
 

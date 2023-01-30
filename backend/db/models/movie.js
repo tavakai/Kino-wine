@@ -29,6 +29,8 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.TEXT,
     country: DataTypes.STRING,
     image: DataTypes.TEXT,
+    image_horizontal: DataTypes.TEXT,
+    logo: DataTypes.TEXT,
     director: DataTypes.STRING,
     path_video: DataTypes.TEXT,
     path_trailer: DataTypes.TEXT,

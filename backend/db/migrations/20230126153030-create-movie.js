@@ -35,6 +35,12 @@ module.exports = {
       image: {
         type: Sequelize.TEXT,
       },
+      image_horizontal: {
+        type: Sequelize.TEXT,
+      },
+      logo: {
+        type: Sequelize.TEXT,
+      },
       director: {
         type: Sequelize.STRING,
       },

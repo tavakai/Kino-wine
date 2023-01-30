@@ -1,0 +1,9 @@
+.genres__item_wrapper {
+  border-radius: 15px;
+  max-width: 240px;
+  width: 100%;
+}
+.genres__item_image {
+  width: 100%;
+  border-radius: 10px;
+}

@@ -40,7 +40,7 @@ export default function MainSlider() {
             className="mySwiperMain"
           >
             {
-          mainSliderMovies.reverse().map((el) => (
+          mainSliderMovies.map((el) => (
             <SwiperSlide key={el.id}>
               <MainSliderItem movie={el} />
             </SwiperSlide>

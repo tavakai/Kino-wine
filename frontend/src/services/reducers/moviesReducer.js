@@ -1,9 +1,11 @@
 import {
   GET_MOVIES_FOR_MAIN,
+  GET_GENRES,
 } from '../types';
 
 const initialState = {
   mainSliderMovies: [],
+  genres: [],
 }
 
 export default function moviesReducer(state = initialState, action) {
@@ -13,6 +15,11 @@ export default function moviesReducer(state = initialState, action) {
       return {
         ...state,
         mainSliderMovies: [...payload],
+      }
+    case GET_GENRES:
+      return {
+        ...state,
+        genres: [...payload],
       }
     default:
       return state;

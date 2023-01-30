@@ -1,7 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
-import { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import Player from '../Player/Player'
 import style from './MoviePage.module.css'
 

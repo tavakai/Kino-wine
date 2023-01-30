@@ -8,7 +8,7 @@ export default function MoviePage() {
   const { id } = useParams()
   console.log(id, 'id');
   useEffect(() => {
-    axios.get(` http://localhost:3001/film/moviepage/${id}`)
+    axios.get(`http://localhost:3001/film/moviepage/${id}`)
       .then((res) => setOneFilm(res.data))
   }, [])
 

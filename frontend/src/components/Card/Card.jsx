@@ -6,7 +6,7 @@ function Card({ card }) {
   const { image, title, rate } = card;
   return (
   // <div className={s.card__wrapper}>
-    <Link to="/:movieId" className={s.card__link}>
+    <Link to="/moviepage/:id" className={s.card__link}>
       {/* <div className={s.card__image_wrapper}> */}
       <span className={s.card__rate}>{rate}</span>
       <img src={image} alt="" className={s.card__image} />

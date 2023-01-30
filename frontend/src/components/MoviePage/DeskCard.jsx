@@ -6,12 +6,13 @@ import Player from '../Player/Player'
 import style from './MoviePage.module.css'
 
 export default function DeskCard({ onefilm }) {
-  const [film, setFilm] = useState(null)
+  console.log(onefilm, 'onefilm');
+  // const [film, setFilm] = useState(null)
 
-  useEffect(() => {
-    setFilm(onefilm?.actors && console.log(JSON.parse(onefilm?.actors)))
-  }, [onefilm])
-  console.log(film, 'film');
+  // useEffect(() => {
+  //   setFilm(onefilm?.actors && console.log(JSON.parse(onefilm?.actors)))
+  // }, [onefilm])
+  // console.log(film, 'film');
   return (
     <div>
       <div
@@ -42,12 +43,12 @@ export default function DeskCard({ onefilm }) {
             <p>{onefilm.country}</p>
             <p className="btn btn-primary" style={{ color: 'white' }}>{`${onefilm.duration} мин`}</p>
           </div>
-          {film.map((el) => (
+          {/* {film.map((el) => (
             <div>
               {' '}
               {el}
-            </div>
-          ))}
+            </div> */}
+          {/* ))} */}
         </div>
       </div>
       <div style={{ padding: '5px 30px 30px 50px', display: 'flex', justifyContent: 'center' }}>

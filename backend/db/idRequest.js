@@ -9,7 +9,7 @@ async function getIds() {
 }
 
 const genres = ['фантастика', 'боевик', 'триллер', 'приключения', 'мелодрама', 'комедия', 'семейный', 'музыка', 'драма', 'детектив', 'криминал', 'фэнтези', 'спорт', 'биография', 'история', 'военный', 'ужасы', 'вестерн', 'фильм-нуар', 'мюзикл', 'аниме', 'мультфильм'];
-const recIds = [298, 301, 312, 314, 322, 325, 328, 338, 361, 370];
+const recIds = [298, 314, 316, 322, 323, 327, 333, 341, 355, 370];
 
 const getData = async () => {
   const results = [];
@@ -19,6 +19,7 @@ const getData = async () => {
   const actorMoviesRes = [];
   const allActors = [];
   const ids = await getIds();
+  let counter = 0;
 
   for (let i = 0; i < ids.length; i++) {
     let resActors = [];
@@ -26,56 +27,66 @@ const getData = async () => {
     // console.log(request);
     const res = request.data;
 
-    const resGenres = res.genres.map((genre) => genre.name);
-    genresRes.push(...resGenres);
+    if (res.logo?.url
+      && res.backdrop?.url
+      && res.poster?.url
+      && res.productionCompanies[0]?.name
+      && res.videos?.trailers[0]?.url.includes('youtube')
+    ) {
+      counter += 1;
+      const resGenres = res.genres.map((genre) => genre.name);
+      genresRes.push(...resGenres);
 
-    resActors = res.persons
-      .filter((person) => person.enProfession === 'actor')
-      .map((actor) => ({
-        fullname: actor.name,
-        image: actor.photo,
-        kp_id: actor.id,
-      }));
+      resActors = res.persons
+        .filter((person) => person.enProfession === 'actor')
+        .map((actor) => ({
+          fullname: actor.name,
+          image: actor.photo,
+          kp_id: actor.id,
+        }));
 
-    allActors.push(...resActors);
+      allActors.push(...resActors);
 
-    typesRes.push(res.type);
+      typesRes.push(res.type);
 
-    const directors = res.persons
-      .filter((person) => person.enProfession === 'director')
-      .map((director) => director.name);
+      const directors = res.persons
+        .filter((person) => person.enProfession === 'director')
+        .map((director) => director.name);
 
-    results.push({
-      type_id: res.typeNumber || 1,
-      kp_id: res.id || 0,
-      title: res.name || '',
-      year: res.year || 0,
-      description: res.description || '',
-      country: res.countries[0].name || '',
-      image: res.poster.url || '',
-      director: JSON.stringify(directors) || '',
-      path_video: '',
-      path_trailer: res.videos.trailers[0].url || '',
-      duration: res.movieLength || 0,
-      rating: String(res.rating.kp).slice(0, -1) || '',
-      fees: res.fees.world.value || '',
-      ageRating: res.ageRating || 0,
-      productionCompanies: res.productionCompanies[0]?.name || '',
-      similarMovies: JSON.stringify(res.similarMovies) || '',
-      actors: JSON.stringify(resActors) || '',
-      subscription: true,
-      isRecommended: recIds.includes(res.id) || false,
-    });
+      results.push({
+        type_id: res.typeNumber || 1,
+        kp_id: res.id || 0,
+        title: res.name || '',
+        year: res.year || 0,
+        description: res.description || '',
+        country: res.countries[0].name || '',
+        image: res.poster?.url ? res.poster.url : '',
+        image_horizontal: res.backdrop?.url ? res.backdrop.url : '',
+        logo: res.logo?.url ? res.logo.url : '',
+        director: JSON.stringify(directors) || '',
+        path_video: '',
+        path_trailer: res.videos.trailers[0].url || '',
+        duration: res.movieLength || 0,
+        rating: String(res.rating.kp).slice(0, -1) || '',
+        fees: res.fees.world.value || '',
+        ageRating: res.ageRating || 0,
+        productionCompanies: res.productionCompanies[0]?.name || '',
+        similarMovies: JSON.stringify(res.similarMovies) || '',
+        actors: JSON.stringify(resActors) || '',
+        subscription: true,
+        isRecommended: recIds.includes(res.id) || false,
+      });
 
-    genres.map((genre, ind) => {
-      if (JSON.stringify(res.genres).includes(genre)) {
-        genreMoviesRes.push({
-          genre_id: ind + 1,
-          movie_id: i + 1,
-        });
-      }
-      return genreMoviesRes;
-    });
+      genres.map((genre, ind) => {
+        if (JSON.stringify(res.genres).includes(genre)) {
+          genreMoviesRes.push({
+            genre_id: ind + 1,
+            movie_id: counter,
+          });
+        }
+        return genreMoviesRes;
+      });
+    }
   }
 
   const uniqueGenres = [...new Set(genresRes)];

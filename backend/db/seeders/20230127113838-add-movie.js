@@ -7,6 +7,7 @@ module.exports = {
     const {
       results, uniqueActors, genreMoviesRes, actorMoviesSeed,
     } = await getData();
+    console.log(genreMoviesRes.at(-1));
 
     await queryInterface.bulkInsert(
       'Movies',

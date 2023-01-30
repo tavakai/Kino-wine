@@ -1,0 +1,30 @@
+.searchTips {
+  position: absolute;
+  z-index: 12;
+  top: 100%;
+  width: 100%;
+  min-height: 100%;
+  background-color: #252525;
+  border-radius: 8px;
+}
+.searchTips .searchTips__list {
+  padding: 2rem;
+}
+.searchTips__item {
+  display: block;
+}
+
+.ul {
+  display: block;
+  margin: 0;
+  list-style: none;
+}
+
+.psContainer {
+  position: relative;
+}
+.ps {
+  overflow: hidden!important;
+  overflow-anchor: none;
+  touch-action: auto;
+}

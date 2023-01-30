@@ -14,14 +14,28 @@ router.get('/rec', async (req, res) => {
   }
 });
 
-router.get('/search', async (req, res) => {
-  const query = req.query.q;
+// router.get('/search', async (req, res) => {
+//   const query = req.query.q;
+//   function ucFirst(str) {
+//     if (!str) return str;
+//     return str[0].toUpperCase() + str.slice(1);
+//   }
+//   try {
+//     const searchedMovies = await Movie.findAll({ where: { title: { [Op.substring]: `${ucFirst(query)}` } } });
+//     return res.json(searchedMovies);
+//   } catch (e) {
+//     console.log(e);
+//     return res.sendStatus(500);
+//   }
+// });
+router.post('/search', async (req, res) => {
+  const { input } = req.body;
   function ucFirst(str) {
     if (!str) return str;
     return str[0].toUpperCase() + str.slice(1);
   }
   try {
-    const searchedMovies = await Movie.findAll({ where: { title: { [Op.substring]: `${ucFirst(query)}` } } });
+    const searchedMovies = await Movie.findAll({ where: { title: { [Op.substring]: `${ucFirst(input)}` } } });
     return res.json(searchedMovies);
   } catch (e) {
     console.log(e);

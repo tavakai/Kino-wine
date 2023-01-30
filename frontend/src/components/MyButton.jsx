@@ -3,7 +3,6 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 
 export default function MyButton() {
   const { id } = useParams()
-  console.log(id, 'id');
 
   const desk = [
     {

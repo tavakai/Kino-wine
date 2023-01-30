@@ -29,9 +29,14 @@ class Api {
     return axios.post(`${this.baseUrl}/check`)
   }
 
-  // Проверка на авторизацию при первой загрузке приложения
+  // Загрузка фильмов для главного слайдера
   getMoviesForMain() {
     return axios.get(`${this.baseUrl}/movies/rec`)
+  }
+
+  // Загрузка списка жанров
+  getGenres() {
+    return axios.get(`${this.baseUrl}/genres`)
   }
 }
 

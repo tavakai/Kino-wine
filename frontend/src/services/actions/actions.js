@@ -7,9 +7,7 @@ import {
   IS_LOADING_FALSE,
   USER_EDIT,
   GET_MOVIES_FOR_MAIN,
-  GET_FILTER,
-  RESET_LIST,
-  LIKE_TOGGLE,
+  GET_GENRES,
 } from '../types';
 import api from '../../utils/api';
 
@@ -22,7 +20,7 @@ export const isLoadingTrue = () => ({ type: IS_LOADING_TRUE });
 export const isLoadingFalse = () => ({ type: IS_LOADING_FALSE });
 export const userChange = (payload) => ({ type: USER_EDIT, payload });
 export const getMoviesForMain = (payload) => ({ type: GET_MOVIES_FOR_MAIN, payload });
-export const getCategoryList = (payload) => ({ type: GET_FILTER, payload });
+export const getGenresList = (payload) => ({ type: GET_GENRES, payload });
 
 // Creators
 
@@ -80,10 +78,9 @@ export const getMoviesForMainAction = () => (dispatch) => {
     });
 };
 
-export const getCategoryListAction = (category) => (dispatch) => {
-  dispatch(resetList());
-  api.getCategoryList(category).then((res) => {
-    dispatch(getCategoryList(res.data));
+export const getGenresAction = () => (dispatch) => {
+  api.getGenres().then((res) => {
+    dispatch(getGenresList(res.data));
   })
     .catch((err) => {
       console.log(err);

@@ -25,7 +25,7 @@ code {
   max-width: 1120px;
   width: 100%;
   z-index: 2;
-  padding: 39px!important;
+  padding: 0px 30px 0px 30px!important;
 }
 .swiper_categories .swiper {
   padding: 50px!important;

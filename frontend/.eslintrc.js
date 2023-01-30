@@ -29,5 +29,6 @@ module.exports = {
     semi: 0,
     'import/no-unresolved': 0,
     'no-undef': 0,
+    camelcase: 0,
   },
 };

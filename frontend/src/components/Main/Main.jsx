@@ -61,7 +61,7 @@ function Main() {
     <>
       <MainSlider />
       <div className={s.list__wrapper}>
-        <CategorySlider />
+        {/* <CategorySlider /> */}
       </div>
     </>
   );

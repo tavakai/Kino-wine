@@ -1,21 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import s from './MainSliderItem.module.css';
 
 function MainSliderItem({ movie }) {
-  const { title, description, poster } = movie;
+  const { logo, image_horizontal, description } = movie;
+  const shortDescription = `${description.slice(0, 50)}...`;
   return (
-    <div className={s.poster__wrapper}>
-      <img className={s.poster__img} src={poster} alt="poster movie background" />
-      <h1 className={s.poster__title}>
-        {title}
-      </h1>
+    <Link to="/moviepage/:id" className={`main__slider_poster ${s.poster__wrapper}`}>
+      <div className={s.poster__layout} />
+      <img className={s.poster__img} src={image_horizontal} alt="poster movie background" />
+      <img className={s.poster__logo} src={logo} alt="poster movie title" />
       <p className={s.poster__description}>
-        {description}
+        {shortDescription}
       </p>
       <button type="button" onClick={() => console.log('Ckick to ', title)} className={s.poster__button}>
         Подробнее
       </button>
-    </div>
+    </Link>
   );
 }
 

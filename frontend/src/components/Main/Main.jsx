@@ -2,6 +2,7 @@ import React from 'react';
 import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Card from '../Card/Card';
+import CategorySlider from '../CategorySlider/CategorySlider';
 import MainSlider from '../MainSlider/MainSlider';
 import s from './Main.module.css';
 
@@ -60,40 +61,7 @@ function Main() {
     <>
       <MainSlider />
       <div className={s.list__wrapper}>
-        <Swiper
-          slidesPerView={7}
-          spaceBetween={30}
-          loop
-          loopFillGroupWithBlank
-          navigation
-          modules={[Navigation]}
-          className="swiper_categories"
-          breakpoints={{
-            // when window width is >= 320px
-            320: {
-              slidesPerView: 3,
-              spaceBetween: 20,
-            },
-            // when window width is >= 480px
-            480: {
-              slidesPerView: 5,
-              spaceBetween: 30,
-            },
-            // when window width is >= 640px
-            640: {
-              slidesPerView: 7,
-              spaceBetween: 40,
-            },
-          }}
-        >
-          {
-          mokData.map((card) => (
-            <SwiperSlide key={card.id}>
-              <Card card={card} />
-            </SwiperSlide>
-          ))
-        }
-        </Swiper>
+        <CategorySlider />
       </div>
     </>
   );

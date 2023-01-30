@@ -8,6 +8,7 @@ function MainSliderItem({ movie }) {
   } = movie;
   console.log(movie, 'movie');
   const shortDescription = `${description.slice(0, 50)}...`;
+
   return (
     <Link to={`/moviepage/${id}`} className={`main__slider_poster ${s.poster__wrapper}`}>
       <div className={s.poster__layout} />

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import DeskCard from './DeskCard'
 
 export default function MoviePage() {
-  const [onefilm, setOneFilm] = useState([])
+  const [onefilm, setOneFilm] = useState(null)
   const { id } = useParams()
   console.log(id, 'id');
   useEffect(() => {
@@ -14,7 +14,9 @@ export default function MoviePage() {
 
   return (
     <div>
-      <DeskCard onefilm={onefilm} />
+
+      {onefilm && <DeskCard onefilm={onefilm} />}
+
     </div>
   )
 }

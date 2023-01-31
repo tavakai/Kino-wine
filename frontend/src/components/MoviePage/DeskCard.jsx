@@ -14,56 +14,66 @@ export default function DeskCard({ onefilm }) {
   })
 
   return (
-    <div>
+    <div style={{ maxWidth: '1126px', width: '100%', margin: '0 auto' }}>
       <div
         className="card"
       >
-        <div style={{ display: 'flex', margin: '5px 30px' }}>
-          <div>
-            <img src={onefilm.image} style={{ width: '300px', height: '400px', borderRadius: '20px' }} className="card-img-top" alt="..." />
+        <div className={style.style_card}>
+          <div style={{
+            display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
+          }}
+          >
+            <img src={onefilm.image} className={style.style_img} alt="..." />
+            {/* <div className={style.style_player}> */}
+            <Player onefilm={onefilm} />
+            {/* </div> */}
           </div>
-          <div className="card-body" style={{ color: 'white', padding: '0px 50px' }}>
-            <img src={onefilm.logo} alt="..." style={{ width: '250px', height: '100px' }} />
-            <h3 className={style.card_title}>{onefilm.title}</h3>
-            <h3 className={style.card_title}>{`Год производства:  ${onefilm.year} ` }</h3>
+
+          <div className={style.description_text}>
+            <div>
+              <img src={onefilm.logo} alt="..." className={style.style_logo} />
+            </div>
+            <div><h3 className={style.card_title}>{`Год производства:  ${onefilm.year} ` }</h3></div>
             <div className="card-text">
               {onefilm.description}
             </div>
+
+          </div>
+          <div style={{ color: 'white' }}>
             <p>
               {' '}
               Рейтинг :
               {' '}
               {onefilm.rating}
+              {' '}
+              {'⭐'.repeat(Math.floor(onefilm.rating))}
             </p>
             <p>
               {' '}
               {onefilm.productionCompanies}
             </p>
-            <p>{onefilm.country}</p>
+            <p>
+              Страна:
+              {` ${onefilm.country}`}
+            </p>
             <p className="btn btn-primary" style={{ color: 'white' }}>{`${onefilm.duration} мин`}</p>
           </div>
-
         </div>
       </div>
-      {actors.filter((_, i) => i <= 3).map((topActor) => (
-        <div
-          key={topActor.kp_id}
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-          }}
-        >
-          <img src={topActor.image} alt="..." style={{ width: '100px', height: '140px' }} />
-          {' '}
-          <p style={{ color: 'white' }}>{topActor.fullname}</p>
-        </div>
-      ))}
-
-      <button onClick={navigate('/shop')} type="button" className={style.button_buy}>Купить и смотреть </button>
-
-      <div style={{ padding: '5px 30px 30px 50px', display: 'flex', justifyContent: 'center' }}>
-        <Player onefilm={onefilm} />
+      <div className={style.card_actor_container}>
+        {actors.filter((_, i) => i <= 6).map((topActor) => (
+          <div
+            key={topActor.kp_id}
+            className={style.card_actor}
+          >
+            <img src={topActor.image} alt="..." className={style.style_img_actor} />
+            {' '}
+            <p className={style.style_fullname_actor}>{topActor.fullname}</p>
+          </div>
+        ))}
       </div>
+
+      <button onClick={() => navigate('/shop')} type="button" className={style.button_buy}>Купить и смотреть </button>
     </div>
   )
 }

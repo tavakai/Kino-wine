@@ -21,7 +21,7 @@ export default function Player({ onefilm }) {
   }, [onefilm.path_trailer]);
   return (
     <div style={{
-      width: '600px',
+      width: '350px',
       border: '0.5px solid white',
     }}
     >

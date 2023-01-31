@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsToMany(Actor, { through: 'ActorMovies', foreignKey: 'movie_id' });
       this.belongsToMany(Genre, { through: 'GenreMovies', foreignKey: 'movie_id' });
       this.belongsToMany(User, { through: 'Favorites', foreignKey: 'movie_id' });
-      this.belongsToMany(User, { through: 'Reviews', foreignKey: 'movie_id' });
+      this.belongsToMany(User, { through: 'Reviews', foreignKey: 'movie_id', as: 'review_movie_id' });
     }
   }
   Movie.init({

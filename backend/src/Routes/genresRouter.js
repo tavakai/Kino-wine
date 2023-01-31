@@ -27,8 +27,9 @@ router.get('/movies', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
+  const genreId = Number(id);
   try {
-    const genreMovies = await Genre.findByPk(id, { include: Movie });
+    const genreMovies = await Genre.findByPk(genreId, { include: Movie });
     if (genreMovies) {
       return res.json(genreMovies);
     }

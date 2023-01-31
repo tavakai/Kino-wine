@@ -51,12 +51,17 @@ class Api {
 
   // Добавление фильма в избранное
   addToFavoritesAction(id) {
-    return axios.post(`${this.baseUrl}/favorite`, id)
+    return axios.post(`${this.baseUrl}/favorite`, { id })
   }
 
-  // Удаление фильмаа из избранного
+  // Удаление фильма из избранного
   deleteFromFavorites(id) {
     return axios.delete(`${this.baseUrl}/favorite/${id}`)
+  }
+
+  // Загрузка списка фильмов определенного жанра
+  getGenreMovies(id) {
+    return axios.get(`${this.baseUrl}/genres/${id}`)
   }
 }
 

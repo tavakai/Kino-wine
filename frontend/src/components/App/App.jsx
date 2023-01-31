@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { authCheckAction } from '../../services/actions/actions';
@@ -10,6 +10,7 @@ import Main from '../Main/Main';
 import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
 import s from './App.module.css';
+import Subscribe from '../Subscribe/Subscribe';
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ function App() {
         <Route path="/reg" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/moviepage/:id" element={<MoviePage />} />
+        <Route path="/shop" element={<Subscribe />} />
       </Routes>
     </div>
   );

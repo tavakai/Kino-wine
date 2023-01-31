@@ -8,7 +8,6 @@ router.get('/moviepage/:id', async (req, res) => {
   console.log(id, 'id server moviepage');
   try {
     const desc = await Movie.findByPk(id);
-    console.log(desc, 'desc========');
     res.json(desc);
   } catch (error) {
     console.log(error);

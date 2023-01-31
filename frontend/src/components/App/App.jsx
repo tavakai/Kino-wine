@@ -24,6 +24,7 @@ function App() {
   return (
     <div className={s.App}>
       <Header />
+      {/* <StreamComponentTest /> */}
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/auth" element={<Login />} />

@@ -8,7 +8,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 // import required modules
-import { Navigation } from 'swiper';
+import { Navigation, Autoplay } from 'swiper';
 import { useDispatch, useSelector } from 'react-redux';
 import MainSliderItem from '../MainSliderItem/MainSliderItem';
 import s from './MainSlider.module.css';
@@ -33,8 +33,11 @@ export default function MainSlider() {
             centeredSlides
             grabCursor
             navigation
+            // autoplay={{
+            //   delay: 4000,
+            // }}
             loop
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             slideNextClass="swiper-slide-next-main"
             slidePrevClass="swiper-slide-prev-main"
             className="mySwiperMain"

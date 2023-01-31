@@ -1,0 +1,19 @@
+.button_color{
+    border-radius: 3px;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 2;
+    color: #fff;
+    width: 150px;
+    background: linear-gradient(180deg,var(--start-gradient-color) 0%,var(--end-gradient-color) 100%);
+    box-shadow: 0 0 104px var(--shadow-color);
+    --start-gradient-color: #A869F0;
+    --end-gradient-color: #834CC2;
+    --shadow-color: #A869F0;
+    cursor: pointer;
+    z-index: 1;
+    width: 250px;
+    height: 50px;
+}
+.

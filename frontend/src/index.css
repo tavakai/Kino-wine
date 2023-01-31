@@ -1,13 +1,132 @@
+@import url('./vendor/normalize.css');
+@import url('./vendor/fonts/fonts.css');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'RobotoSlab-Regular', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #1f1b2e;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.mySwiperMain {
+  /* height: 20px; */
+}
+
+.swiper_categories {
+  height: 300px!important;
+  max-width: 1120px;
+  width: 100%;
+  z-index: 2;
+  padding: 0px 30px 0px 30px!important;
+}
+.swiper_categories .swiper {
+  padding: 50px!important;
+}
+
+/* .swiper_categories .swiper-slide.swiper-slide-duplicate.swiper-slide-prev {
+  display: hidden;
+}
+
+.swiper_categories > .swiper-slide-duplicate .swiper-slide-duplicate-prev {
+  display: hidden;
+} */
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.mySwiperMain .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  /* background: #fff; */
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  position: relative;
+}
+
+.swiper_categories img {
+  display: block;
+  width: 100%;
+  /* height: 100%; */
+  object-fit: contain;
+}
+
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mySwiperMain > .swiper-slide > .main__slider_poster {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover!important;
+  border-radius: 15px;
+}
+/* .swiper-slide {
+  transition: all 0.5s ease;
+  padding: 0px!important;
+  flex-shrink: 0;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+}  */
+
+.swiper-button-next, .swiper-button-prev {
+  color: gainsboro!important;
+}
+.swiper-3d .swiper-slide-shadow-left {
+  background: transparent!important;
+  margin-right: 30px!important;
+}
+.swiper-3d .swiper-slide-shadow-right {
+  background: transparent!important;
+  margin-right: 30px!important;
+}
+
+.mySwiperMain > .swiper-button-prev, .swiper-rtl {
+  left: 23%!important;
+  right: auto;
+}
+.mySwiperMain > .swiper-button-next, .swiper-rtl {
+  right: 23%!important;
+  left: auto;
+}
+.swiper_categories > .swiper-button-prev, .swiper-rtl {
+  left: 0%!important;
+  top: 36%!important;
+  right: auto;
+}
+.swiper_categories > .swiper-button-next, .swiper-rtl {
+  right: 0%!important;
+  top: 36%!important;
+  left: auto;
+}
+
+.swiper-slide.swiper-slide-prev-main {
+  opacity: .2!important;
+}
+.swiper-slide.swiper-slide-next-main {
+  opacity: .2!important;
 }

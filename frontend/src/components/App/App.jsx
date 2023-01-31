@@ -11,6 +11,8 @@ import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
 import s from './App.module.css';
 import Subscribe from '../Subscribe/Subscribe';
+import Favorites from '../Favorites/Favorites';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +28,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/auth" element={<Login />} />
         <Route path="/reg" element={<Register />} />
+        <Route path="/favorite" element={<Favorites />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/moviepage/:id" element={<MoviePage />} />
         <Route path="/shop" element={<Subscribe />} />

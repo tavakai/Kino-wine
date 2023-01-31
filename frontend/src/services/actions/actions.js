@@ -8,6 +8,10 @@ import {
   USER_EDIT,
   GET_MOVIES_FOR_MAIN,
   GET_GENRES,
+  GET_SEARCHED,
+  SET_FAVORITES,
+  ADD_TO_FAVORITES,
+  DELETE_FROM_FAVORITES,
 } from '../types';
 import api from '../../utils/api';
 
@@ -21,6 +25,10 @@ export const isLoadingFalse = () => ({ type: IS_LOADING_FALSE });
 export const userChange = (payload) => ({ type: USER_EDIT, payload });
 export const getMoviesForMain = (payload) => ({ type: GET_MOVIES_FOR_MAIN, payload });
 export const getGenresList = (payload) => ({ type: GET_GENRES, payload });
+export const getSearchedMovies = (payload) => ({ type: GET_SEARCHED, payload });
+export const setFavorites = (allFav) => ({ type: SET_FAVORITES, payload: allFav });
+export const addToFavorites = (oneMovie) => ({ type: ADD_TO_FAVORITES, payload: oneMovie });
+export const deleteFromFavorites = (movieId) => ({ type: DELETE_FROM_FAVORITES, payload: movieId });
 
 // Creators
 
@@ -84,9 +92,41 @@ export const getGenresAction = () => (dispatch) => {
   })
     .catch((err) => {
       console.log(err);
-    // dispatch(isLoadingFalse());
+      // dispatch(isLoadingFalse());
     })
     .finally(() => {
-    // dispatch(isLoadingFalse());
+      // dispatch(isLoadingFalse());
     });
+};
+
+export const getSearchedMoviesAction = (input) => (dispatch) => {
+  // dispatch(isLoadingTrue());
+  api.getSearchedMovies(input)
+    .then((res) => {
+      dispatch(getSearchedMovies(res.data));
+    })
+    .catch((err) => {
+      console.log(err);
+      // dispatch(isLoadingFalse());
+    })
+    .finally(() => {
+      // dispatch(isLoadingFalse());
+    });
+};
+
+export const getFavoritesAction = () => (dispatch) => {
+  api.getFavorites()
+    .then((res) => dispatch(setFavorites(res.data)))
+    .catch(() => dispatch(setFavorites([])));
+};
+
+export const addToFavoritesAction = (id) => (dispatch) => {
+  api.addToFavoritesAction(id)
+    .then((res) => dispatch(addToFavorites(res.data)));
+};
+
+export const deleteFromFavoritesAction = (id) => (dispatch) => {
+  api.deleteFromFavorites(id)
+    .then(() => dispatch(deleteFromFavorites(id)))
+    .catch(console.log);
 };

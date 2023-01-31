@@ -38,6 +38,26 @@ class Api {
   getGenres() {
     return axios.get(`${this.baseUrl}/genres`)
   }
+
+  // Загрузка фильмов для поиска
+  getSearchedMovies(input) {
+    return axios.post(`${this.baseUrl}/movies/search`, { input })
+  }
+
+  // Загрузка списка фильмов из избранного
+  getFavorites() {
+    return axios.get(`${this.baseUrl}/favorite`)
+  }
+
+  // Добавление фильма в избранное
+  addToFavoritesAction(id) {
+    return axios.post(`${this.baseUrl}/favorite`, id)
+  }
+
+  // Удаление фильмаа из избранного
+  deleteFromFavorites(id) {
+    return axios.delete(`${this.baseUrl}/favorite/${id}`)
+  }
 }
 
 const api = new Api({

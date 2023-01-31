@@ -21,6 +21,10 @@ module.exports = {
       avatar: {
         type: Sequelize.TEXT
       },
+      isSubscribed: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

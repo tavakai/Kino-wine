@@ -1,4 +1,5 @@
 .searchTips {
+  margin-top: 8px;
   position: absolute;
   z-index: 12;
   top: 100%;
@@ -6,12 +7,78 @@
   min-height: 100%;
   background-color: #252525;
   border-radius: 8px;
+  height: 511px;
+  overflow-y: scroll;
+  touch-action: auto;
+  padding: 8px 36px 8px 22px;
+}
+.searchTips::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+.searchTips::-webkit-scrollbar-track {
+  background: black;        /* color of the tracking area */
+}
+
+.searchTips::-webkit-scrollbar-thumb {
+  background-color: #facc6d;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid black;  /* creates padding around scroll thumb */
 }
 .searchTips .searchTips__list {
   padding: 2rem;
 }
 .searchTips__item {
   display: block;
+}
+.searchTips__itemInside {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-bottom: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #8c8c8c;
+}
+.searchTips__image {
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 40px;
+  height: 56px;
+  margin-right: 2rem;
+  line-height: 0;
+  border-radius: 4px;
+}
+.img {
+    max-width: 100%;
+    height: auto;
+    font-size: 1.6rem;
+    line-height: 1.1875;
+}
+.searchTips__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 1;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+}
+.searchTips__description {
+  display: flex;
+}
+.searchTips__descriptionItem {
+  display: block;
+  margin-right: 12px;
+  color: #8c8c8c;
+  font-size: 16px;
+  line-height: 24px;
+}
+.searchTips__rating {
+  display: inline-flex;
+  align-items: center;
+  color: #facc6d;
+  margin-right: 12px;
 }
 
 .ul {
@@ -24,7 +91,10 @@
   position: relative;
 }
 .ps {
-  overflow: hidden!important;
+  /* overflow: hidden!important; */
+  /* scrollbar-width: thin;
+  scrollbar-color: #6969dd #e0e0e0;
+  overflow: scroll;
   overflow-anchor: none;
-  touch-action: auto;
+  touch-action: auto; */
 }

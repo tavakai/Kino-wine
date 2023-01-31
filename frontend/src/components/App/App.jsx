@@ -13,7 +13,6 @@ import s from './App.module.css';
 import Subscribe from '../Subscribe/Subscribe';
 import Favorites from '../Favorites/Favorites';
 
-
 function App() {
   const dispatch = useDispatch();
 

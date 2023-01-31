@@ -13,7 +13,6 @@ import s from './App.module.css';
 import Subscribe from '../Subscribe/Subscribe';
 import Favorites from '../Favorites/Favorites';
 
-
 function App() {
   const dispatch = useDispatch();
 
@@ -24,6 +23,7 @@ function App() {
   return (
     <div className={s.App}>
       <Header />
+      {/* <StreamComponentTest /> */}
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/auth" element={<Login />} />

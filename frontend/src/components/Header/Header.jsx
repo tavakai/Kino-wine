@@ -36,7 +36,7 @@ function Header() {
                 </li>
                 <li className={s.nav__item}>
                   <NavLink to="/shop" className={s.nav__link}>
-                    Магазин
+                    Подписки
                   </NavLink>
                 </li>
                 <li className={s.nav__item}>

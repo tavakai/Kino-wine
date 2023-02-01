@@ -64,6 +64,9 @@
   line-height: 24px;
   color: #fff;
 }
+.searchTips__text:hover {
+  color: #facc6d;
+}
 .searchTips__description {
   display: flex;
 }

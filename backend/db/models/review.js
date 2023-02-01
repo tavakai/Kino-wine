@@ -16,7 +16,10 @@ module.exports = (sequelize, DataTypes) => {
   Review.init({
     user_id: DataTypes.INTEGER,
     movie_id: DataTypes.INTEGER,
-    text: DataTypes.TEXT
+    title: DataTypes.STRING,
+    text: DataTypes.TEXT,
+    likes: DataTypes.INTEGER,
+    dislikes: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Review',

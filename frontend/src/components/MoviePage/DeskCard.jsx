@@ -1,11 +1,30 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { addToFavoritesAction, deleteFromFavoritesAction, getFavoritesAction } from '../../services/actions/actions'
 import Player from '../Player/Player'
 import style from './MoviePage.module.css'
+import Reviews from '../Reviews/Reviews';
 
 export default function DeskCard({ onefilm }) {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const favorites = useSelector((store) => store.favorites)
+  const [inFavorites, setInFavorites] = useState(false)
+
+  useEffect(() => {
+    dispatch(getFavoritesAction());
+  }, [])
+
+  useEffect(() => {
+    if (favorites?.find((el) => el.id === onefilm.id)) {
+      setInFavorites(true)
+    } else {
+      setInFavorites(false)
+    }
+  }, [favorites])
+
   const actors = onefilm.actors.replace(/\[/g, '').split(/},{/g).map((str, i, arr) => {
     if ((i !== 0) && (i !== arr.length - 1)) {
       return JSON.parse(`{${str}}`)
@@ -33,11 +52,28 @@ export default function DeskCard({ onefilm }) {
             <div>
               <img src={onefilm.logo} alt="..." className={style.style_logo} />
             </div>
-            <div><h3 className={style.card_title}>{`Год производства:  ${onefilm.year} ` }</h3></div>
+            <div><h3 className={style.card_title}>{`Год производства:  ${onefilm.year} `}</h3></div>
             <div className="card-text">
               {onefilm.description}
             </div>
-
+            <div className={style.showPromo__actions}>
+              <button onClick={() => navigate('/shop')} type="button" className={style.button_buy}>Купить и смотреть </button>
+              {inFavorites
+                ? (
+                  <button onClick={() => dispatch(deleteFromFavoritesAction(onefilm.id))} data-v-58cacffa="" type="button" className={style.btn_add_to_favorite}>
+                    <svg data-v-58cacffa="" width="17" height="13" fill="none" xmlns="http://www.w3.org/2000/svg" className="">
+                      <path data-v-58cacffa="" d="M5.707 9.293L15 0l1.415 1.414L5.707 12.121 0 6.414 1.414 5l4.293 4.293z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                )
+                : (
+                  <button onClick={() => dispatch(addToFavoritesAction(onefilm))} data-v-58cacffa="" type="button" className={style.btn_add_to_favorite}>
+                    <svg data-v-58cacffa="" width="14" height="20.186" fill="none" xmlns="http://www.w3.org/2000/svg" className="">
+                      <path data-v-58cacffa="" d="M1.013 20.111l5.674-2.836a.7.7 0 01.626 0l5.674 2.837A.7.7 0 0014 19.485V2a2 2 0 00-2-2H2a2 2 0 00-2 2v17.485a.7.7 0 001.013.626zM7 14.883l-5 2.5V2h10v15.382z" fill="currentColor" />
+                    </svg>
+                  </button>
+                )}
+            </div>
           </div>
           <div style={{ color: 'white' }}>
             <p>
@@ -73,7 +109,7 @@ export default function DeskCard({ onefilm }) {
         ))}
       </div>
 
-      <button onClick={() => navigate('/shop')} type="button" className={style.button_buy}>Купить и смотреть </button>
+      <Reviews id={onefilm.id} />
     </div>
   )
 }

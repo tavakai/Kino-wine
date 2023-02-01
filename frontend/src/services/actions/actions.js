@@ -13,6 +13,8 @@ import {
   ADD_TO_FAVORITES,
   DELETE_FROM_FAVORITES,
   SET_GENRE_MOVIES,
+  SET_REVIEWS,
+  ADD_REVIEW,
 } from '../types';
 import api from '../../utils/api';
 
@@ -31,6 +33,8 @@ export const setFavorites = (allFav) => ({ type: SET_FAVORITES, payload: allFav 
 export const addToFavorites = (oneMovie) => ({ type: ADD_TO_FAVORITES, payload: oneMovie });
 export const deleteFromFavorites = (movieId) => ({ type: DELETE_FROM_FAVORITES, payload: movieId });
 export const setGenreMovies = (allMovies) => ({ type: SET_GENRE_MOVIES, payload: allMovies });
+export const setReviews = (allReviews) => ({ type: SET_REVIEWS, payload: allReviews });
+export const addReview = (newReview) => ({ type: ADD_REVIEW, payload: newReview });
 
 // Creators
 
@@ -122,8 +126,8 @@ export const getFavoritesAction = () => (dispatch) => {
     .catch(() => dispatch(setFavorites([])));
 };
 
-export const addToFavoritesAction = (id) => (dispatch) => {
-  api.addToFavoritesAction(id)
+export const addToFavoritesAction = (oneFilm) => (dispatch) => {
+  api.addToFavoritesAction(oneFilm)
     .then((res) => dispatch(addToFavorites(res.data)));
 };
 
@@ -140,4 +144,16 @@ export const getGenreMoviesAction = (id) => (dispatch) => {
       console.log(res.data.Movies);
     })
     .catch(() => dispatch(setGenreMovies([])));
+};
+
+export const getReviewsAction = (id) => (dispatch) => {
+  api.getReviews(id)
+    .then((res) => dispatch(setReviews(res.data)))
+    .catch(() => dispatch(setReviews([])));
+};
+
+export const addReviewAction = (e, input) => (dispatch) => {
+  e.preventDefault();
+  api.addReview(input)
+    .then((res) => dispatch(addReview(res.data)));
 };

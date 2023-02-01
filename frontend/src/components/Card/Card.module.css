@@ -11,10 +11,57 @@
 }
 .card__link {
   text-decoration: none;
+  display: block;
+  transition: transform 0.2s cubic-bezier(0.12, 0, 0.39, 0);
+}
+.card__interactive {
+  position: relative;
+}
+.card__interactive:hover {
+  transform: scale(1.01,1.01)!important;
+  transition: transform 0.5s ease;
+}
+.card__display {
+  visibility: hidden;
+  position: absolute;
+}
+.card__interactive:hover .card__display {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.01,1.01)!important;
+  visibility: visible;
+  background-color: rgba(0, 0, 0, .7);
+  transition: background-color 0.5s ease;
+  border-radius: 15px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+.card__interactive:hover .btn_add_to_favorite {
+  margin-left: 10px;
+  color: #fff;
+  border: 1px solid #fff;
+  background: transparent;
+  min-width: 50px;
+  height: 50px;
+  padding-bottom: 2px;
+  letter-spacing: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  vertical-align: middle;
+  border: none;
+  opacity: 1;
+  transition: opacity 0.5s, transform 0.5s ease
+}
+.btn_add_to_favorite {
+  opacity: 0;
+  z-index: 10;
+}
+.btn_add_to_favorite:hover {
+  transform: scale(1.2,1.2);
 }
 .card__image_wrapper {
   width: 100%;
@@ -36,5 +83,12 @@
 }
 .card__detail_title {
   color: gainsboro;
+  text-align: left;
+}
+.card__subtitle {
+  color:gainsboro;
+  font-size: 12px;
+  display: block;
+  margin: 10px 0 0 10px;
   text-align: left;
 }

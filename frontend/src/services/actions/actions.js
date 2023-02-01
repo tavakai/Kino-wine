@@ -13,6 +13,7 @@ import {
   ADD_TO_FAVORITES,
   DELETE_FROM_FAVORITES,
   SET_GENRE_MOVIES,
+  GET_CATEGORIES_WITH_MOVIES,
 } from '../types';
 import api from '../../utils/api';
 
@@ -31,6 +32,7 @@ export const setFavorites = (allFav) => ({ type: SET_FAVORITES, payload: allFav 
 export const addToFavorites = (oneMovie) => ({ type: ADD_TO_FAVORITES, payload: oneMovie });
 export const deleteFromFavorites = (movieId) => ({ type: DELETE_FROM_FAVORITES, payload: movieId });
 export const setGenreMovies = (allMovies) => ({ type: SET_GENRE_MOVIES, payload: allMovies });
+export const getCategoriesWithMovies = (payload) => ({ type: GET_CATEGORIES_WITH_MOVIES, payload });
 
 // Creators
 
@@ -137,7 +139,14 @@ export const getGenreMoviesAction = (id) => (dispatch) => {
   api.getGenreMovies(id)
     .then((res) => {
       dispatch(setGenreMovies(res.data.Movies))
-      console.log(res.data.Movies);
+    })
+    .catch(() => dispatch(setGenreMovies([])));
+};
+
+export const getCategoriesWithMoviesAction = () => (dispatch) => {
+  api.getCategoriesWithMovies()
+    .then((res) => {
+      dispatch(getCategoriesWithMovies(res.data))
     })
     .catch(() => dispatch(setGenreMovies([])));
 };

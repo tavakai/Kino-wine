@@ -27,7 +27,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  object-fit: fill;
+  object-fit: cover;
   border-radius: 15px;
 }
 .poster__img {

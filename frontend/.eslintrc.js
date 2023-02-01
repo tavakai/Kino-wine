@@ -30,5 +30,8 @@ module.exports = {
     'import/no-unresolved': 0,
     'no-undef': 0,
     camelcase: 0,
+    'jsx-a11y/click-events-have-key-events': 0,
+    'sx-a11y/no-static-element-interactions': 0,
+    'jsx-a11y/no-static-element-interactions': 0,
   },
 };

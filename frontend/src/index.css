@@ -16,28 +16,16 @@ code {
     monospace;
 }
 
-.mySwiperMain {
-  /* height: 20px; */
-}
-
-.swiper_categories {
-  height: 300px!important;
+.swiper_genres {
+  height: 230px!important;
   max-width: 1120px;
   width: 100%;
   z-index: 2;
   padding: 0px 30px 0px 30px!important;
 }
-.swiper_categories .swiper {
+.swiper_genres .swiper {
   padding: 50px!important;
 }
-
-/* .swiper_categories .swiper-slide.swiper-slide-duplicate.swiper-slide-prev {
-  display: hidden;
-}
-
-.swiper_categories > .swiper-slide-duplicate .swiper-slide-duplicate-prev {
-  display: hidden;
-} */
 
 .swiper {
   width: 100%;
@@ -47,9 +35,7 @@ code {
 .mySwiperMain .swiper-slide {
   text-align: center;
   font-size: 18px;
-  /* background: #fff; */
 
-  /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -65,10 +51,9 @@ code {
   position: relative;
 }
 
-.swiper_categories img {
+.swiper_genres img {
   display: block;
   width: 100%;
-  /* height: 100%; */
   object-fit: contain;
 }
 
@@ -84,14 +69,6 @@ code {
   object-fit: cover!important;
   border-radius: 15px;
 }
-/* .swiper-slide {
-  transition: all 0.5s ease;
-  padding: 0px!important;
-  flex-shrink: 0;
-  height: 100%;
-  position: relative;
-  transition-property: transform;
-}  */
 
 .swiper-button-next, .swiper-button-prev {
   color: gainsboro!important;
@@ -113,12 +90,12 @@ code {
   right: 23%!important;
   left: auto;
 }
-.swiper_categories > .swiper-button-prev, .swiper-rtl {
+.swiper_genres > .swiper-button-prev, .swiper-rtl {
   left: 0%!important;
   top: 36%!important;
   right: auto;
 }
-.swiper_categories > .swiper-button-next, .swiper-rtl {
+.swiper_genres > .swiper-button-next, .swiper-rtl {
   right: 0%!important;
   top: 36%!important;
   left: auto;
@@ -129,4 +106,30 @@ code {
 }
 .swiper-slide.swiper-slide-next-main {
   opacity: .2!important;
+}
+
+.swiper_category {
+  height: 300px!important;
+  max-width: 1120px;
+  width: 100%;
+  z-index: 2;
+  padding: 0px 25px!important;
+}
+
+.swiper_category > .swiper-button-prev, .swiper-rtl {
+  left: 0%!important;
+  top: 50%!important;
+  right: auto;
+}
+.swiper_category > .swiper-button-next, .swiper-rtl {
+  right: 0%!important;
+  top: 50%!important;
+  left: auto;
+}
+
+.swiper_category img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

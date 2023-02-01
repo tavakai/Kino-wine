@@ -39,6 +39,11 @@ class Api {
     return axios.get(`${this.baseUrl}/genres`)
   }
 
+  // Загрузка списка жанров с фильмами (!)
+  getCategoriesWithMovies() {
+    return axios.get(`${this.baseUrl}/genres/movies`)
+  }
+
   // Загрузка фильмов для поиска
   getSearchedMovies(input) {
     return axios.post(`${this.baseUrl}/movies/search`, { input })

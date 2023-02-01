@@ -33,9 +33,9 @@ export default function MainSlider() {
             centeredSlides
             grabCursor
             navigation
-            // autoplay={{
-            //   delay: 4000,
-            // }}
+            autoplay={{
+              delay: 7000,
+            }}
             loop
             modules={[Navigation, Autoplay]}
             slideNextClass="swiper-slide-next-main"

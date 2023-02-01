@@ -3,6 +3,7 @@ import {
   GET_GENRES,
   GET_SEARCHED,
   SET_GENRE_MOVIES,
+  GET_CATEGORIES_WITH_MOVIES,
 } from '../types';
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   genres: [],
   searchedMovies: [],
   genreMovies: [],
+  categories: [],
 }
 
 export default function moviesReducer(state = initialState, action) {
@@ -34,6 +36,11 @@ export default function moviesReducer(state = initialState, action) {
       return {
         ...state,
         genreMovies: [...payload],
+      }
+    case GET_CATEGORIES_WITH_MOVIES:
+      return {
+        ...state,
+        categories: [...payload],
       }
     default:
       return state;

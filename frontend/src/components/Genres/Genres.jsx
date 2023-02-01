@@ -34,7 +34,7 @@ function Genres() {
         loopFillGroupWithBlank
         navigation
         modules={[Navigation]}
-        className="swiper_categories"
+        className="swiper_genres"
         breakpoints={{
           // when window width is >= 320px
           320: {

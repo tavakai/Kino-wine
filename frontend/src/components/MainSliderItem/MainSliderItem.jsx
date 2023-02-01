@@ -9,7 +9,7 @@ function MainSliderItem({ movie }) {
   const {
     logo, image_horizontal, description, id,
   } = movie;
-  const shortDescription = `${description.slice(0, 50)}...`;
+  const shortDescription = `${description.slice(0, 150)}...`;
 
   useEffect(() => {
     if (swiperSlide.isActive) {
@@ -17,18 +17,19 @@ function MainSliderItem({ movie }) {
         () => (swiperSlide.isActive ? setIsHidden(s.poster__img_hidden) : setIsHidden('')),
         2000,
       )
+    } else {
+      setIsHidden('')
     }
     return () => {
       clearInterval();
-      // setIsHidden('')
     }
   })
-  console.log(swiperSlide.isActive, movie.title);
+
   return (
     <Link to={`/moviepage/${id}`} className={`main__slider_poster ${s.poster__wrapper}`}>
       <div className={s.poster__layout} />
       {
-        swiperSlide.isActive && <video className={s.poster__background_video} muted autoPlay loop src="./content/fortune.mp4" />
+        swiperSlide.isActive && <video className={s.poster__background_video} muted autoPlay loop src="./content/xmen.webm" />
       }
       <div className="" />
       <img className={`${s.poster__img} ${isHidden}`} src={image_horizontal} alt="poster movie background" />

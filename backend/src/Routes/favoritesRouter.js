@@ -19,20 +19,23 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const { id } = req.body;
+  console.log(req.body);
+  const { oneFilm } = req.body;
   try {
-    const newFav = await Favorite.create({ user_id: req.session.user.id, movie_id: Number(id) });
-    return res.json(newFav);
+    await Favorite.create({ user_id: req.session.user.id, movie_id: oneFilm.id });
+    const newFavMovie = await Movie.findOne({ where: { id: oneFilm.id } });
+    return res.json(newFavMovie);
   } catch (e) {
     console.log(e);
     return res.sendStatus(500);
   }
 });
 
-router.delete('/', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   const { id } = req.params;
+  console.log('id ---->', id);
   try {
-    await Favorite.destroy({ where: { movie_id: id } });
+    await Favorite.destroy({ where: { movie_id: Number(id) } });
     return res.sendStatus(200);
   } catch (e) {
     console.log(e);

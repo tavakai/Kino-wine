@@ -44,9 +44,6 @@ export default function SearchResults({ setOpenSearch }) {
 
         </ul>
 
-        {/* <div className="ps__rail-y" style={{ top: '0px', height: '511px', right: '3px' }}>
-          <div className="ps__thumb-y" style={{ top: '0px', height: '473px' }} />
-        </div> */}
       </section>
     </div>
 

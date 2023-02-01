@@ -22,8 +22,19 @@ module.exports = {
           key: 'id',
         },
       },
+      title: {
+        type: Sequelize.STRING,
+      },
       text: {
         type: Sequelize.TEXT,
+      },
+      likes: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
+      },
+      dislikes: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
       },
       createdAt: {
         allowNull: false,

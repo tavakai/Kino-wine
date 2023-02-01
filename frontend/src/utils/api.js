@@ -55,8 +55,8 @@ class Api {
   }
 
   // Добавление фильма в избранное
-  addToFavoritesAction(id) {
-    return axios.post(`${this.baseUrl}/favorite`, { id })
+  addToFavoritesAction(oneFilm) {
+    return axios.post(`${this.baseUrl}/favorite`, { oneFilm })
   }
 
   // Удаление фильма из избранного
@@ -67,6 +67,16 @@ class Api {
   // Загрузка списка фильмов определенного жанра
   getGenreMovies(id) {
     return axios.get(`${this.baseUrl}/genres/${id}`)
+  }
+
+  // Загрузка списка рецензий
+  getReviews(id) {
+    return axios.get(`${this.baseUrl}/reviews/${id}`)
+  }
+
+  // Загрузка списка рецензий
+  addReview(input) {
+    return axios.post(`${this.baseUrl}/reviews`, input)
   }
 }
 

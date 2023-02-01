@@ -1,0 +1,272 @@
+.review_body {
+  color: white;
+  text-align: left;
+  margin: 20px 40px;
+}
+
+.review_header {
+  padding-left: 16px;
+}
+
+.review__btn {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, .32);
+  width: 30%;
+  height: 40px;
+  border-width: 1px;
+  border-radius: 8px;
+  padding: 9px 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-style: solid;
+  cursor: pointer;
+}
+
+.review__btn:hover {
+  border-color: rgba(255, 255, 255, .9);
+}
+
+.review__btn_text {
+  color: #fff;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.review_inner {
+  background-color: #13111d;
+  padding: 32px 20px 13px;
+  height: 184px;
+  margin: 20px 0;
+  border-radius: 12px;
+  position: relative;
+}
+
+.review_author {
+  color: #a5a1b2;
+  margin-bottom: 8px;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 700;
+  font-style: normal;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  min-height: 16px;
+}
+
+.review_text {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  -webkit-line-clamp: 2;
+}
+
+.review_title {
+  color: #fff;
+  font-style: normal;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.review_textBlock {
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 400;
+  height: 66px;
+  white-space: normal;
+  overflow: hidden;
+  /* white-space: nowrap; */
+  text-overflow: ellipsis;
+}
+
+.review_date {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  color: #a5a1b2;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.vote {
+  display: flex;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+.vote__button {
+  color: rgba(126, 121, 143, .72);
+  transition: color 400ms;
+  cursor: pointer;
+  font-size: 0;
+  position: relative;
+  border: 0;
+  background: 0 0;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  overflow: visible;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.voteUp__icon {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  line-height: 16px;
+  position: relative;
+  background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg' fill='grey'%3E%3Cpath d='M2.167 6.25h1.75v7h-1.75a.583.583 0 0 1-.584-.583V6.833a.583.583 0 0 1 .584-.583Zm3.087-.754 3.734-3.734a.292.292 0 0 1 .381-.027l.498.373a.875.875 0 0 1 .322.916l-.672 2.643h3.733a1.167 1.167 0 0 1 1.167 1.166v1.228c0 .152-.03.303-.088.444l-1.805 4.384a.584.584 0 0 1-.54.361H5.667a.583.583 0 0 1-.584-.583V5.908c0-.154.062-.303.171-.412Z'/%3E%3C/svg%3E);
+}
+
+.voteUp__icon:hover {
+  background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg' fill='%233bb33b'%3E%3Cpath d='M2.167 6.25h1.75v7h-1.75a.583.583 0 0 1-.584-.583V6.833a.583.583 0 0 1 .584-.583Zm3.087-.754 3.734-3.734a.292.292 0 0 1 .381-.027l.498.373a.875.875 0 0 1 .322.916l-.672 2.643h3.733a1.167 1.167 0 0 1 1.167 1.166v1.228c0 .152-.03.303-.088.444l-1.805 4.384a.584.584 0 0 1-.54.361H5.667a.583.583 0 0 1-.584-.583V5.908c0-.154.062-.303.171-.412Z'/%3E%3C/svg%3E);
+}
+
+.voteDown__icon {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  line-height: 16px;
+  position: relative;
+  background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg' fill='grey'%3E%3Cpath d='M13.833 9.75h-1.75v-7h1.75a.583.583 0 0 1 .584.583v5.834a.583.583 0 0 1-.584.583Zm-3.087.754-3.734 3.734a.291.291 0 0 1-.381.027l-.498-.373a.875.875 0 0 1-.322-.916l.672-2.643H2.75a1.166 1.166 0 0 1-1.167-1.166V7.939c0-.152.03-.303.088-.444l1.806-4.383a.583.583 0 0 1 .539-.362h6.317a.583.583 0 0 1 .584.583v6.759a.583.583 0 0 1-.171.412Z'/%3E%3C/svg%3E);
+}
+
+.voteDown__icon:hover {
+  background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg' fill='%23f00'%3E%3Cpath d='M13.833 9.75h-1.75v-7h1.75a.583.583 0 0 1 .584.583v5.834a.583.583 0 0 1-.584.583Zm-3.087.754-3.734 3.734a.291.291 0 0 1-.381.027l-.498-.373a.875.875 0 0 1-.322-.916l.672-2.643H2.75a1.166 1.166 0 0 1-1.167-1.166V7.939c0-.152.03-.303.088-.444l1.806-4.383a.583.583 0 0 1 .539-.362h6.317a.583.583 0 0 1 .584.583v6.759a.583.583 0 0 1-.171.412Z'/%3E%3C/svg%3E);
+}
+
+.vote__valuePositive {
+  color: #73a32f;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 700;
+  padding-left: 8px;
+  padding-right: 8px;
+  min-width: 42px;
+  text-align: center;
+}
+
+.vote__valueNegative {
+  color: rgb(203, 7, 7);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 700;
+  padding-left: 8px;
+  padding-right: 8px;
+  min-width: 42px;
+  text-align: center;
+}
+
+.form__container {
+  width: 50%;
+  margin-top: 20px;
+}
+
+.form_inputBody {
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.form_inputTitle {
+  padding-right: 12px;
+  padding-left: 12px;
+  background-color: #d9d7e0;
+  color: #1f1b2e;
+  height: 40px;
+  border-radius: 8px;
+  /* padding-top: 18px; */
+  padding-bottom: 2px;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.form_textareaBody {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-top: 14px;
+  margin-bottom: 16px;
+  min-height: 104px
+}
+
+.form_textareaText {
+  background-color: #d9d7e0;
+  color: #1f1b2e;
+  resize: none;
+  display: block;
+  width: 100%;
+  border-width: 0;
+  cursor: pointer;
+  min-height: 104px;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+  padding: 18px 12px 12px;
+  overflow: hidden;
+}
+
+.form__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form__buttonsCover {
+  display: flex;
+}
+
+.form__cancelBtn {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, .32);
+  height: 40px;
+  border-width: 1px;
+  border-radius: 8px;
+  padding: 9px 15px;
+  position: relative;
+  cursor: pointer;
+}
+
+.form__cancelBtn:hover {
+  border-color: rgba(255, 255, 255, .9);
+}
+
+.form__btn_text {
+  color: #fff;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.form__sendBtn {
+  margin-left: 20px;
+  background-color: #ea003d;
+  border-color: #ea003d;
+  height: 40px;
+  border-width: 1px;
+  border-radius: 8px;
+  padding: 9px 15px;
+  position: relative;
+  cursor: pointer;
+}
+
+.form__sendBtn:hover {
+  background-color: #f61954;
+  border-color: #f61954;
+}

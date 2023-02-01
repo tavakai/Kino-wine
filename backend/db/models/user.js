@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ Movie }) {
       this.belongsToMany(Movie, { through: 'Favorites', foreignKey: 'user_id' });
-      this.belongsToMany(Movie, { through: 'Reviews', foreignKey: 'user_id', as: 'review_user_id' });
+      this.belongsToMany(Movie, { through: 'Reviews', foreignKey: 'user_id', as: 'reviewMovies' });
     }
   }
   User.init({

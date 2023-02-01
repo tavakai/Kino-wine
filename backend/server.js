@@ -8,6 +8,7 @@ const descriptionRouter = require('./src/Routes/descriptionRouter');
 const genresRouter = require('./src/Routes/genresRouter');
 const moviesRouter = require('./src/Routes/moviesRouter');
 const favoritesRouter = require('./src/Routes/favoritesRouter');
+const reviewsRouter = require('./src/Routes/reviewsRouter');
 
 const app = express();
 
@@ -42,4 +43,5 @@ app.use('/', userRouter);
 app.use('/genres', genresRouter);
 app.use('/movies', moviesRouter);
 app.use('/favorite', favoritesRouter);
+app.use('/reviews', reviewsRouter);
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));

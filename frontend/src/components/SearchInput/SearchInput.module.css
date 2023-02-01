@@ -78,6 +78,9 @@
   opacity: .4;
   cursor: pointer;
 }
+.headerSearch__close:hover {
+  opacity: .9;
+}
 
 .headerSearch__background {
   position: fixed;

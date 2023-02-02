@@ -43,15 +43,10 @@
   color: rgba(255,255,255,.48);
   font-size: 14px;
   color: rgba(255, 255, 255, .48);
-  font-size: 18px;
+  font-size: 16px;
   padding: 28px 0px 4px 0px;
   cursor: pointer;
   color: ghostwhite;
-  /* background-image: -webkit-linear-gradient(135deg,#c447ff,#ea003d);
-  background-image: -o-linear-gradient(135deg,#c447ff,#ea003d);
-  background-image: linear-gradient(-45deg,#c447ff,#ea003d);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
 }
 
 .nav__link_white {

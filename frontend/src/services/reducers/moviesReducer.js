@@ -4,6 +4,8 @@ import {
   GET_SEARCHED,
   SET_GENRE_MOVIES,
   GET_CATEGORIES_WITH_MOVIES,
+  GET_WEEK_TOPS,
+  GET_HIGH_RATED,
 } from '../types';
 
 const initialState = {
@@ -12,6 +14,8 @@ const initialState = {
   searchedMovies: [],
   genreMovies: [],
   categories: [],
+  weekTops: [],
+  highRated: [],
 }
 
 export default function moviesReducer(state = initialState, action) {
@@ -41,6 +45,16 @@ export default function moviesReducer(state = initialState, action) {
       return {
         ...state,
         categories: [...payload],
+      }
+    case GET_WEEK_TOPS:
+      return {
+        ...state,
+        weekTops: [...payload],
+      }
+    case GET_HIGH_RATED:
+      return {
+        ...state,
+        highRated: [...payload],
       }
     default:
       return state;

@@ -10,6 +10,8 @@ async function getIds() {
 
 const genres = ['фантастика', 'боевик', 'триллер', 'приключения', 'мелодрама', 'комедия', 'семейный', 'музыка', 'драма', 'детектив', 'криминал', 'фэнтези', 'спорт', 'биография', 'история', 'военный', 'ужасы', 'вестерн', 'фильм-нуар', 'мюзикл', 'аниме', 'мультфильм'];
 const recIds = [298, 316, 322, 323, 327, 333, 341, 355, 370, 8408];
+const weekTopIds = [298, 299, 341, 338, 370, 376, 377, 386, 89515, 276762];
+const highRatedIds = [312, 324, 325, 326, 327, 328, 329, 336, 361, 381];
 
 const getData = async () => {
   const results = [];
@@ -65,6 +67,7 @@ const getData = async () => {
         logo: res.logo?.url ? res.logo.url : '',
         director: JSON.stringify(directors) || '',
         path_video: '',
+        source: '',
         path_trailer: res.videos.trailers[0].url || '',
         duration: res.movieLength || 0,
         rating: String(res.rating.kp).slice(0, -1) || '',
@@ -75,6 +78,8 @@ const getData = async () => {
         actors: JSON.stringify(resActors) || '',
         subscription: true,
         isRecommended: recIds.includes(res.id) || false,
+        isWeekTop: weekTopIds.includes(res.id) || false,
+        isHighRated: highRatedIds.includes(res.id) || false,
       });
 
       genres.map((genre, ind) => {

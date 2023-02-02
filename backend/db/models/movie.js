@@ -33,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     logo: DataTypes.TEXT,
     director: DataTypes.STRING,
     path_video: DataTypes.TEXT,
+    source: DataTypes.TEXT,
     path_trailer: DataTypes.TEXT,
     duration: DataTypes.INTEGER,
     rating: DataTypes.STRING,
@@ -43,6 +44,8 @@ module.exports = (sequelize, DataTypes) => {
     actors: DataTypes.TEXT,
     subscription: DataTypes.BOOLEAN,
     isRecommended: DataTypes.BOOLEAN,
+    isWeekTop: DataTypes.BOOLEAN,
+    isHighRated: DataTypes.BOOLEAN,
   }, {
     sequelize,
     modelName: 'Movie',

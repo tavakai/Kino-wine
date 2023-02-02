@@ -22,7 +22,11 @@ export default function Favorites() {
               <Card card={card} />
             </div>
           ))
-          : 'Пока что нет фильмов в Избранном'}
+          : (
+            <div style={{ marginTop: '50px', marginLeft: 'auto', marginRight: 'auto' }}>
+              Пока что нет фильмов в Избранном
+            </div>
+          )}
       </div>
     </div>
   )

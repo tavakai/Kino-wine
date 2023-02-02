@@ -46,7 +46,6 @@ export const setOpenSearch = (newBoolean) => ({ type: SET_OPEN_SEARCH, payload: 
 export const getWeekTops = (payload) => ({ type: GET_WEEK_TOPS, payload });
 export const getHighRated = (payload) => ({ type: GET_HIGH_RATED, payload });
 
-
 // Creators
 
 // Auth

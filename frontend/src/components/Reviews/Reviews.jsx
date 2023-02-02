@@ -15,11 +15,16 @@ export default function Reviews({ id }) {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getReviewsAction(id))
+    // if (reviews?.find((el) => el.user_id === user.id)) {
+    //   setHideBtn(true)
+    // }
+  }, [])
+  useEffect(() => {
     if (reviews?.find((el) => el.user_id === user.id)) {
       setHideBtn(true)
     }
-  }, [])
-  // console.log(hideBtn);
+  }, [reviews])
+  console.log(hideBtn);
   return (
     <div className={s.review_body}>
       <h2 className={s.review_header}>Рецензии зрителей</h2>

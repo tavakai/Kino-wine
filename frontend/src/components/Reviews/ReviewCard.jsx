@@ -9,16 +9,28 @@ export default function ReviewCard({ review, users }) {
   const [likes, setLikes] = useState(review.likes)
   const [liked, setLiked] = useState(false)
   const [disliked, setDisliked] = useState(false)
+  const [expanded, setExpanded] = useState(false)
+  const shortText = `${review.text.slice(0, 300)}...`;
   useEffect(() => {
     axios.put(`http://localhost:3001/reviews/${review.id}`, { likes })
   }, [likes])
   return (
-    <div className={s.review_inner}>
+    <div className={!expanded ? s.review_inner : s.review_inner_expanded}>
       <div className={s.review_author}>
         {users.find((user) => user.id === review.user_id).name}
       </div>
       <div className={`${s.review_text} ${s.review_title}`}>{review.title}</div>
-      <div className={s.review_textBlock}>{review.text}</div>
+      <div>
+        <p className={!expanded
+          ? s.review_textBlock
+          : s.review_textBlock_expanded}
+        >
+          {!expanded ? shortText : review.text}
+        </p>
+        {!expanded
+          ? <span className={s.clause__toggle} onClick={() => setExpanded(true)}>Развернуть</span>
+          : <span className={s.clause__toggle} onClick={() => setExpanded(false)}>Свернуть</span>}
+      </div>
       <div className={s.review_date}>
         {newDate}
       </div>

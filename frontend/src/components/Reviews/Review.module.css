@@ -1,7 +1,7 @@
 .review_body {
   color: white;
   text-align: left;
-  margin: 20px 40px;
+  margin: 65px 40px;
 }
 
 .review_header {
@@ -49,7 +49,15 @@
 .review_inner {
   background-color: #13111d;
   padding: 32px 20px 13px;
-  height: 184px;
+  height: 212px;
+  margin: 20px 0;
+  border-radius: 12px;
+  position: relative;
+}
+
+.review_inner_expanded {
+  background-color: #13111d;
+  padding: 32px 20px 13px;
   margin: 20px 0;
   border-radius: 12px;
   position: relative;
@@ -93,8 +101,33 @@
   height: 66px;
   white-space: normal;
   overflow: hidden;
-  /* white-space: nowrap; */
   text-overflow: ellipsis;
+}
+
+.review_textBlock_expanded {
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 400;
+  padding-bottom: 40px;
+  margin-bottom: 30px;
+}
+
+.clause__toggle {
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 400;
+  font-style: normal;
+  display: inline-block;
+  /* margin-top: 5px; */
+  padding-top: 10px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, .88);
+  position: absolute;
+  bottom: 45px;
+  /* border-bottom: dotted; */
+}
+.clause__toggle:hover {
+  color: rgba(255, 255, 255);
 }
 
 .review_date {
@@ -160,6 +193,7 @@
 .voteDown__icon:hover {
   background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg' fill='%23f00'%3E%3Cpath d='M13.833 9.75h-1.75v-7h1.75a.583.583 0 0 1 .584.583v5.834a.583.583 0 0 1-.584.583Zm-3.087.754-3.734 3.734a.291.291 0 0 1-.381.027l-.498-.373a.875.875 0 0 1-.322-.916l.672-2.643H2.75a1.166 1.166 0 0 1-1.167-1.166V7.939c0-.152.03-.303.088-.444l1.806-4.383a.583.583 0 0 1 .539-.362h6.317a.583.583 0 0 1 .584.583v6.759a.583.583 0 0 1-.171.412Z'/%3E%3C/svg%3E);
 }
+
 .voteDown__icon__disliked {
   background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg' fill='%23f00'%3E%3Cpath d='M13.833 9.75h-1.75v-7h1.75a.583.583 0 0 1 .584.583v5.834a.583.583 0 0 1-.584.583Zm-3.087.754-3.734 3.734a.291.291 0 0 1-.381.027l-.498-.373a.875.875 0 0 1-.322-.916l.672-2.643H2.75a1.166 1.166 0 0 1-1.167-1.166V7.939c0-.152.03-.303.088-.444l1.806-4.383a.583.583 0 0 1 .539-.362h6.317a.583.583 0 0 1 .584.583v6.759a.583.583 0 0 1-.171.412Z'/%3E%3C/svg%3E);
 }

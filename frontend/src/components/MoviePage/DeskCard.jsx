@@ -43,19 +43,6 @@ export default function DeskCard({ onefilm }) {
           }}
           >
             <img src={onefilm.image} className={style.style_img} alt="..." />
-            {/* <div className={style.style_player}> */}
-            <Player onefilm={onefilm} />
-            {/* </div> */}
-          </div>
-
-          <div className={style.description_text}>
-            <div>
-              <img src={onefilm.logo} alt="..." className={style.style_logo} />
-            </div>
-            <div><h3 className={style.card_title}>{`Год производства:  ${onefilm.year} `}</h3></div>
-            <div className={style.cardText}>
-              {onefilm.description}
-            </div>
             <div className={style.showPromo__actions}>
               <button onClick={() => navigate('/shop')} type="button" className={style.button_buy}>Купить и смотреть </button>
               {inFavorites
@@ -74,6 +61,17 @@ export default function DeskCard({ onefilm }) {
                   </button>
                 )}
             </div>
+          </div>
+
+          <div className={style.description_text}>
+            <div>
+              <img src={onefilm.logo} alt="..." className={style.style_logo} />
+            </div>
+            <div><h3 className={style.card_title}>{`Год производства:  ${onefilm.year} `}</h3></div>
+            <div className={style.cardText}>
+              {onefilm.description}
+            </div>
+            <Player onefilm={onefilm} />
           </div>
           <div style={{ color: 'white' }}>
             <div>
@@ -96,7 +94,7 @@ export default function DeskCard({ onefilm }) {
               <p className="btn btn-primary" style={{ color: 'white' }}>{`${onefilm.duration} мин`}</p>
             </div>
             <div className={style.card_actor_container}>
-              {actors.filter((_, i) => i <= 6).map((topActor) => (
+              {actors.filter((_, i) => i <= 14).map((topActor) => (
                 <div
                   key={topActor.kp_id}
                   className={style.card_actor}
@@ -110,19 +108,6 @@ export default function DeskCard({ onefilm }) {
           </div>
         </div>
       </div>
-      {/* <div className={style.card_actor_container}>
-        {actors.filter((_, i) => i <= 6).map((topActor) => (
-          <div
-            key={topActor.kp_id}
-            className={style.card_actor}
-          >
-            <img src={topActor.image} alt="..." className={style.style_img_actor} />
-            {' '}
-            <p className={style.style_fullname_actor}>{topActor.fullname}</p>
-          </div>
-        ))}
-      </div> */}
-
       <Reviews id={onefilm.id} />
     </div>
   )

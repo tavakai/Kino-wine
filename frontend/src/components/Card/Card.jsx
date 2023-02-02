@@ -37,13 +37,10 @@ function Card({ card }) {
     }
   }, [favorites])
   return (
-    <div onClick={(e) => checkEvent(e)} className={`${s.card__link} card__movie`}>
+    <Link to={`/moviepage/${id}`} onClick={(e) => checkEvent(e)} className={`${s.card__link} card__movie`}>
       <div className={s.card__interactive}>
         <img src={image} alt="favourite icon" className={`${s.card__image}`} />
         <div className={s.card__display}>
-          <div onMouseDown={(e) => checkEvent(e)} type="button" className={`${s.btn_add_to_favorite}`}>
-            <img className={s.card__display_favourite_icon} src={inFavorites ? iconDelete : iconAdd} alt="" />
-          </div>
           <p className={s.card__display_title}>{title}</p>
           <div className={s.card__display_rateWrapper}>
             <p className={s.card__display_rate}>
@@ -55,7 +52,7 @@ function Card({ card }) {
         </div>
       </div>
       <p className={s.card__subtitle}>Подписка</p>
-    </div>
+    </Link>
   );
 }
 

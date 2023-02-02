@@ -37,7 +37,7 @@ function MainSliderItem({ movie }) {
       <p className={s.poster__description}>
         {shortDescription}
       </p>
-      <button type="button" onClick={() => console.log('Ckick to ', title)} className={s.poster__button}>
+      <button type="button" className={s.poster__button}>
         Подробнее
       </button>
     </Link>

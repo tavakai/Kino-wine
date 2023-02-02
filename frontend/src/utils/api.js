@@ -79,6 +79,10 @@ class Api {
     return axios.post(`${this.baseUrl}/reviews`, input)
   }
 
+
+  // Изменение статуса подписки
+  setSubscribe(level) {
+    return axios.post(`${this.baseUrl}/subscribe`, { level })
   changeLikesAction(id, change) {
     return axios.put(`${this.baseUrl}/reviews/${id}`, change)
   }

@@ -21,6 +21,7 @@ function Header() {
               <ul className={openSearch ? s.hidden : s.nav__bar}>
                 <li className={s.nav__item}>
                   <NavLink to="/" className={s.nav__logo}>
+                    {/* TODO: user.isSubscrebed ===>>> красим лого  */}
                     <img src={logo} className={s.nav__logo} alt="logo icon movie" />
                   </NavLink>
                 </li>

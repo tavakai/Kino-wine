@@ -1,5 +1,12 @@
 import {
-  AUTH_CHECK, AUTH_USER, REG_USER, SIGNOUT, IS_LOADING_TRUE, IS_LOADING_FALSE, USER_EDIT,
+  AUTH_CHECK,
+  AUTH_USER,
+  REG_USER,
+  SIGNOUT,
+  IS_LOADING_TRUE,
+  IS_LOADING_FALSE,
+  USER_EDIT,
+  SET_SUBSCIBE,
 } from '../types';
 
 const initialState = {
@@ -46,6 +53,7 @@ export default function authReducer(state = initialState, action) {
           id: payload.id,
           name: payload.name,
           email: payload.email,
+          isSubscribed: payload.isSubscribed,
         },
       };
     case USER_EDIT:
@@ -76,6 +84,11 @@ export default function authReducer(state = initialState, action) {
       return {
         ...state,
         isLoading: true,
+      };
+    case SET_SUBSCIBE:
+      return {
+        ...state,
+        isSubscribed: payload,
       };
     default:
       return state;

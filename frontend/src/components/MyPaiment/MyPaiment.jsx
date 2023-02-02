@@ -1,31 +1,49 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Cards from 'react-credit-cards';
 import './style.scss';
-// import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
 import AnimatedPage from '../AnimatedPage/AnimatedPage';
 import Preloader from '../Preloader/Preloader';
+import Done from '../Done/Done';
+import { subscribeAction } from '../../services/actions/actions';
 
-export default function MyPaiment() {
+export default function MyPaiment({ subscribeLevel }) {
   const navigate = useNavigate()
-  //   const dispatch = useDispatch();
-  //   const [amount, setAmount] = useState('');
   const [number, setNumber] = useState('');
   const [name, setName] = useState('');
   const [expiry, setExpiry] = useState('');
   const [cvc, setCvc] = useState('');
   const [focus, setFocus] = useState('');
   const [preloader, setPreloader] = useState(false);
-  useEffect(() => {
+  const [done, setDone] = useState(false)
+  const dispatch = useDispatch()
+  const handleSubmit = (e) => {
+    setPreloader(true);
+    e.preventDefault();
     setTimeout(() => {
       setPreloader(false)
-    }, 2000)
-  }, [preloader])
+      setDone(true)
+      dispatch(subscribeAction(subscribeLevel))
+      // in actions
+      // const subscribeAction = (subscribeLevel) => (dispatch) => {
+      // axios.post('/subscribe',)
+      // }
+      setTimeout(() => {
+        navigate('/')
+      }, 2000)
+    }, 3000)
+  }
+
   return (
     <AnimatedPage>
-      {preloader ? <Preloader /> : (
 
-        <div className="pocket-form">
+      <div
+        className="pocket-form"
+      >
+        {preloader && <Preloader />}
+        {done && <Done />}
+        <div>
           <div style={{ zIndex: '1', position: 'relative', padding: '40px 0' }}>
             <h3 style={{ color: 'white' }}>Оплатить подписку</h3>
             <h5 style={{ color: 'white' }}>Чтобы начать пользоваться сервисом Кино под вино</h5>
@@ -34,6 +52,7 @@ export default function MyPaiment() {
             <Cards number={number} name={name} expiry={expiry} cvc={cvc} focused={focus} />
             <form
               className="pocket-form__form"
+              onSubmit={(e) => handleSubmit(e)}
             >
               <input
                 type="tel"
@@ -76,7 +95,6 @@ export default function MyPaiment() {
                 required
               />
               <button
-                onClick={() => setPreloader(true)}
                 className="pocket-form__btn"
                 type="submit"
               >
@@ -86,9 +104,11 @@ export default function MyPaiment() {
 
             </form>
             <div><h6 style={{ color: 'white' }}>Продалжая, я соглашаюсь с Пользовательским соглашением и Политикой конфиденциальности</h6></div>
+            {/* <Preloader /> */}
           </div>
         </div>
-      ) }
+      </div>
+
     </AnimatedPage>
   );
 }

@@ -5,7 +5,7 @@ const { Favorite, User, Movie } = require('../../db/models');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-  const userId = req.session.user.id;
+  const userId = req.session?.user?.id;
   try {
     const favMovies = await User.findOne({
       where: { id: userId },

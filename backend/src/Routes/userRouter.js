@@ -49,8 +49,16 @@ router.post('/auth', async (req, res) => {
   return res.sendStatus(500);
 });
 
-router.post('/check', (req, res) => {
+router.post('/check', async (req, res) => {
   if (req.session.user) {
+    try {
+      const user = await User.findByPk(req.session.user.id);
+      if (user) {
+        req.session.user.isSubscribed = user.isSubscribed;
+      }
+    } catch (error) {
+      console.log(error, 'error catch');
+    }
     return res.json(req.session.user);
   }
   return res.sendStatus(401);
@@ -59,6 +67,24 @@ router.post('/check', (req, res) => {
 router.get('/logout', (req, res) => {
   req.session.destroy();
   res.clearCookie('user_sid').sendStatus(200);
+});
+
+router.post('/subscribe', async (req, res) => {
+  const { level } = req.body;
+  if (level) {
+    try {
+      await User.update(
+        { isSubscribed: true },
+        { where: { id: req.session.user.id } },
+      );
+      req.session.user.isSubscribed = true;
+      return res.sendStatus(200);
+    } catch (e) {
+      console.log(e, 'error subscribe');
+      return res.sendStatus(500);
+    }
+  }
+  return res.sendStatus(500);
 });
 
 module.exports = router;

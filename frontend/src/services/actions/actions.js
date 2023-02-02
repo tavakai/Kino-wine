@@ -16,7 +16,7 @@ import {
   SET_REVIEWS,
   ADD_REVIEW,
   GET_CATEGORIES_WITH_MOVIES,
-
+  SET_OPEN_SEARCH,
 } from '../types';
 import api from '../../utils/api';
 
@@ -38,7 +38,7 @@ export const setGenreMovies = (allMovies) => ({ type: SET_GENRE_MOVIES, payload:
 export const setReviews = (allReviews) => ({ type: SET_REVIEWS, payload: allReviews });
 export const addReview = (newReview) => ({ type: ADD_REVIEW, payload: newReview });
 export const getCategoriesWithMovies = (payload) => ({ type: GET_CATEGORIES_WITH_MOVIES, payload });
-
+export const setOpenSearch = (newBoolean) => ({ type: SET_OPEN_SEARCH, payload: newBoolean });
 
 // Creators
 
@@ -163,8 +163,7 @@ export const getReviewsAction = (id) => (dispatch) => {
     .catch(() => dispatch(setReviews([])));
 };
 
-export const addReviewAction = (e, input) => (dispatch) => {
-  e.preventDefault();
-  api.addReview(input)
+export const addReviewAction = (input) => (dispatch) => {
+  api.addReviewAction(input)
     .then((res) => dispatch(addReview(res.data)));
 };

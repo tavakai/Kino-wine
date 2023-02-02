@@ -1,14 +1,21 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { addReviewAction } from '../../services/actions/actions';
 import s from './Review.module.css'
 
 export default function ReviewForm({ setShowForm }) {
+  const { id } = useParams()
   const [input, setInput] = useState({ title: '', text: '' })
   const changeHandler = (e) => setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   const dispatch = useDispatch()
   return (
     <form
-      onSubmit={() => dispatch(addReviewAction(e, input))}
+      onSubmit={(e) => {
+        e.preventDefault()
+        dispatch(addReviewAction({ input, id }))
+        setShowForm(false)
+      }}
     >
       <div className={s.form__container}>
 

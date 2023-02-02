@@ -34,9 +34,9 @@ export default function MainSlider() {
             grabCursor
             navigation
             pauseOnMouseEnter
-            autoplay={{
-              delay: 7000,
-            }}
+            // autoplay={{
+            //   delay: 7000,
+            // }}
             loop
             modules={[Navigation, Autoplay]}
             slideNextClass="swiper-slide-next-main"

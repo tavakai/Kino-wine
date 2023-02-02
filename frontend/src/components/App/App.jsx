@@ -24,9 +24,9 @@ function App() {
     dispatch(authCheckAction());
   }, [])
 
-  useEffect(() => {
-    if (!isLoggedIn) navigate('/')
-  }, [isLoggedIn])
+  // useEffect(() => {
+  //   if (!isLoggedIn) navigate('/')
+  // }, [isLoggedIn])
 
   return (
     <div className={s.App}>
@@ -42,7 +42,7 @@ function App() {
         <Route path="/shop" element={<Subscribe />} />
         <Route path="/genres/:id" element={<GenrePage />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

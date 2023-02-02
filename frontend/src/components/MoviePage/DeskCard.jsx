@@ -36,11 +36,10 @@ export default function DeskCard({ onefilm }) {
   })
   // Метод проверки кнопки и запуска полноэкранного плеера (ДОДЕЛАТЬ)
   const checkSubscribe = () => {
-    setFullscreen(true);
-    // if (user.isSubscribed) {
-    //   setFullscreen(true);
-    // }
-    // return navigate('/shop')
+    if (user.isSubscribed) {
+      setFullscreen(true);
+    }
+    return navigate('/shop')
   }
 
   const checkButtonText = () => {

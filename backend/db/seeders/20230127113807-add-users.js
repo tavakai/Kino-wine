@@ -23,6 +23,13 @@ module.exports = {
         avatar: '',
         isSubscribed: false,
       },
+      {
+        name: 'Адам Балкоев',
+        email: '',
+        password: '',
+        avatar: '',
+        isSubscribed: false,
+      },
     ], {});
   },
 

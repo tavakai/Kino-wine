@@ -26,6 +26,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 0,
     'react/react-in-jsx-scope': 0,
     'no-unused-vars': 0,
+    'no-nested-ternary': 0,
     semi: 0,
     'import/no-unresolved': 0,
     'no-undef': 0,

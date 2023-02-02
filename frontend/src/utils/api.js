@@ -74,9 +74,13 @@ class Api {
     return axios.get(`${this.baseUrl}/reviews/${id}`)
   }
 
-  // Загрузка списка рецензий
-  addReview(input) {
+  // Добавление новой рецензии
+  addReviewAction(input) {
     return axios.post(`${this.baseUrl}/reviews`, input)
+  }
+
+  changeLikesAction(id, change) {
+    return axios.put(`${this.baseUrl}/reviews/${id}`, change)
   }
 }
 

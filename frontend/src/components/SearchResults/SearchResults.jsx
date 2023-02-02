@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import s from './SearchResults.module.css';
+import { setOpenSearch } from '../../services/actions/actions';
 
-export default function SearchResults({ setOpenSearch }) {
+export default function SearchResults() {
   const { searchedMovies } = useSelector((store) => store.movies);
+  const dispatch = useDispatch()
 
   return (
     <div className={s.searchTips}>
@@ -15,7 +17,7 @@ export default function SearchResults({ setOpenSearch }) {
               <Link
                 to={`/moviepage/${movie.id}`}
                 className={s.searchTips__itemInside}
-                onClick={() => setOpenSearch(false)}
+                onClick={() => dispatch(setOpenSearch(false))}
               >
                 <div className={s.searchTips__image}>
                   <img src={movie.image} className={s.img} alt="Поиск" title="Поиск" />

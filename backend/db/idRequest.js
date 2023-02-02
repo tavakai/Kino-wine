@@ -12,6 +12,32 @@ const genres = ['фантастика', 'боевик', 'триллер', 'пр�
 const recIds = [298, 316, 322, 323, 327, 333, 341, 355, 370, 8408];
 const weekTopIds = [298, 299, 341, 338, 370, 376, 377, 386, 89515, 276762];
 const highRatedIds = [312, 324, 325, 326, 327, 328, 329, 336, 361, 381];
+const trailerPath = [
+  {
+    kp_id: 298,
+    source: '/content/xmen2.mp4',
+  },
+  {
+    kp_id: 316,
+    source: '/content/matrix3.mp4',
+  },
+  {
+    kp_id: 323,
+    source: '/content/forsazh2.mp4',
+  },
+  {
+    kp_id: 370,
+    source: '/content/prizraki.mp4',
+  },
+  {
+    kp_id: 8408,
+    source: '/content/garrypotter4.mp4',
+  },
+  {
+    kp_id: 322,
+    source: '/content/garrypotter3.mp4',
+  },
+];
 
 const getData = async () => {
   const results = [];
@@ -55,6 +81,8 @@ const getData = async () => {
         .filter((person) => person.enProfession === 'director')
         .map((director) => director.name);
 
+      const hasTrailer = trailerPath.find((el) => el.kp_id === res.id);
+
       results.push({
         type_id: res.typeNumber || 1,
         kp_id: res.id || 0,
@@ -66,8 +94,8 @@ const getData = async () => {
         image_horizontal: res.backdrop?.url ? res.backdrop.url : '',
         logo: res.logo?.url ? res.logo.url : '',
         director: JSON.stringify(directors) || '',
-        path_video: '',
-        source: '',
+        path_video: res.id === 333 ? '/content/StarWars4.mp4' : '',
+        source: hasTrailer ? hasTrailer.source : '',
         path_trailer: res.videos.trailers[0].url || '',
         duration: res.movieLength || 0,
         rating: String(res.rating.kp).slice(0, -1) || '',

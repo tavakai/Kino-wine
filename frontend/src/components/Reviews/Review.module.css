@@ -92,6 +92,7 @@
   overflow: hidden;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+
 }
 
 .review_textBlock {
@@ -99,7 +100,7 @@
   line-height: 22px;
   font-weight: 400;
   height: 66px;
-  white-space: normal;
+  /* white-space: normal; */
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: pre-line;

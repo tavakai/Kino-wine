@@ -33,6 +33,7 @@ export default function MainSlider() {
             centeredSlides
             grabCursor
             navigation
+            pauseOnMouseEnter
             autoplay={{
               delay: 7000,
             }}

@@ -11,7 +11,10 @@ export default function Favorites() {
     dispatch(getFavoritesAction());
   }, [])
   return (
-    <div style={{ color: 'white' }}>
+    <div style={{
+      color: 'white', maxWidth: '1126px', width: '100%', margin: '0 auto',
+    }}
+    >
       <div className={s.container}>
         {favorites?.length
           ? favorites.map((card) => (

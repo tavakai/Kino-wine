@@ -15,6 +15,7 @@ const initialState = {
     id: 0,
     name: '',
     email: '',
+    isSubscribed: false,
   },
   isLoading: true,
 };
@@ -31,6 +32,7 @@ export default function authReducer(state = initialState, action) {
           id: payload.id,
           name: payload.name,
           email: payload.email,
+          isSubscribed: payload.isSubscribed,
         },
       };
     case AUTH_USER:
@@ -42,6 +44,7 @@ export default function authReducer(state = initialState, action) {
           id: payload.id,
           name: payload.name,
           email: payload.email,
+          isSubscribed: payload.isSubscribed,
         },
       };
     case AUTH_CHECK:
@@ -88,7 +91,10 @@ export default function authReducer(state = initialState, action) {
     case SET_SUBSCIBE:
       return {
         ...state,
-        isSubscribed: payload,
+        user: {
+          ...state.user,
+          isSubscribed: payload,
+        },
       };
     default:
       return state;

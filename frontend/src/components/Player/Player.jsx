@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import s from './Player.module.css';
 
-export default function Player({ onefilm }) {
+export default function Player({ onefilm, full, fullscreen }) {
   function PlayerjsAsync() {
     const player = new Playerjs({
       id: 'player',
-      file: onefilm.path_trailer,
-      autoplay: onefilm.path_trailer ? 1 : 0,
+      file: onefilm,
+      autoplay: onefilm ? 1 : 0,
+    });
+    const playerFull = new Playerjs({
+      id: 'full_player',
+      file: full,
+      autoplay: full ? 1 : 0,
     });
   }
   useEffect(() => {
-    PlayerjsAsync(onefilm.path_trailer);
-  }, [onefilm.path_trailer]);
+    PlayerjsAsync(onefilm);
+    // PlayerjsAsync(full);
+  }, [onefilm, fullscreen]);
   return (
     <div style={{
       maxWidth: '660px',
@@ -19,7 +26,10 @@ export default function Player({ onefilm }) {
       marginTop: '50px',
     }}
     >
-      <div id="player" />
+      {
+        !fullscreen ? <div id="player" /> : <div id="full_player" className={fullscreen ? 'full_player_active' : ''} />
+      }
+      {/* <button type="button">close</button> */}
     </div>
   );
 }

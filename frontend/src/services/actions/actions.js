@@ -42,7 +42,6 @@ export const getCategoriesWithMovies = (payload) => ({ type: GET_CATEGORIES_WITH
 export const setUserSubscribe = (payload) => ({ type: SET_SUBSCIBE, payload });
 export const setOpenSearch = (newBoolean) => ({ type: SET_OPEN_SEARCH, payload: newBoolean });
 
-
 // Creators
 
 // Auth
@@ -73,7 +72,7 @@ export const userChangeAction = (user) => (dispatch) => {
     });
 };
 export const signOutAction = () => (dispatch) => {
-  api.signOut().then(() => dispatch(signOut()));
+  api.logout().then(() => dispatch(signOut()));
 };
 
 // Likes

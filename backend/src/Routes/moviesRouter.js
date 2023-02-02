@@ -14,6 +14,26 @@ router.get('/rec', async (req, res) => {
   }
 });
 
+router.get('/weektop', async (req, res) => {
+  try {
+    const weekTopMovies = await Movie.findAll({ where: { isWeekTop: true } });
+    return res.json(weekTopMovies);
+  } catch (e) {
+    console.log(e);
+    return res.sendStatus(500);
+  }
+});
+
+router.get('/highrated', async (req, res) => {
+  try {
+    const highRatedMovies = await Movie.findAll({ where: { isHighRated: true } });
+    return res.json(highRatedMovies);
+  } catch (e) {
+    console.log(e);
+    return res.sendStatus(500);
+  }
+});
+
 router.post('/search', async (req, res) => {
   const { input } = req.body;
   function ucFirst(str) {

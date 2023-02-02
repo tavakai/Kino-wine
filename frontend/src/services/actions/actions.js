@@ -18,6 +18,8 @@ import {
   GET_CATEGORIES_WITH_MOVIES,
   SET_SUBSCIBE,
   SET_OPEN_SEARCH,
+  GET_WEEK_TOPS,
+  GET_HIGH_RATED,
 } from '../types';
 import api from '../../utils/api';
 
@@ -41,7 +43,8 @@ export const addReview = (newReview) => ({ type: ADD_REVIEW, payload: newReview 
 export const getCategoriesWithMovies = (payload) => ({ type: GET_CATEGORIES_WITH_MOVIES, payload });
 export const setUserSubscribe = (payload) => ({ type: SET_SUBSCIBE, payload });
 export const setOpenSearch = (newBoolean) => ({ type: SET_OPEN_SEARCH, payload: newBoolean });
-
+export const getWeekTops = (payload) => ({ type: GET_WEEK_TOPS, payload });
+export const getHighRated = (payload) => ({ type: GET_HIGH_RATED, payload });
 
 // Creators
 
@@ -173,3 +176,31 @@ export const addReviewAction = (input) => (dispatch) => {
 export const subscribeAction = (level) => (dispatch) => {
   api.setSubscribe(level).then(() => dispatch(setUserSubscribe(true)))
 }
+
+export const getWeekTopsAction = () => (dispatch) => {
+  // dispatch(isLoadingTrue());
+  api.getWeekTopsAction().then((res) => {
+    dispatch(getWeekTops(res.data));
+  })
+    .catch((err) => {
+      console.log(err);
+      // dispatch(isLoadingFalse());
+    })
+    .finally(() => {
+      // dispatch(isLoadingFalse());
+    });
+};
+
+export const getHighRatedAction = () => (dispatch) => {
+  // dispatch(isLoadingTrue());
+  api.getHighRatedAction().then((res) => {
+    dispatch(getHighRated(res.data));
+  })
+    .catch((err) => {
+      console.log(err);
+      // dispatch(isLoadingFalse());
+    })
+    .finally(() => {
+      // dispatch(isLoadingFalse());
+    });
+};

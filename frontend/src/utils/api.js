@@ -87,6 +87,16 @@ class Api {
   changeLikesAction(id, change) {
     return axios.put(`${this.baseUrl}/reviews/${id}`, change)
   }
+
+  // Загрузка фильмов для главного слайдера
+  getWeekTopsAction() {
+    return axios.get(`${this.baseUrl}/movies/weektop`)
+  }
+
+  // Загрузка фильмов для главного слайдера
+  getHighRatedAction() {
+    return axios.get(`${this.baseUrl}/movies/highrated`)
+  }
 }
 
 const api = new Api({

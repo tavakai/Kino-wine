@@ -4,8 +4,8 @@ import { Navigation } from 'swiper';
 import Card from '../../Card/Card';
 import s from './CategoryRow.module.css';
 
-function CategoryRow({ categories }) {
-  const title = `${categories.title[0].toUpperCase()}${categories.title.slice(1)}`
+function CategoryRow({ category }) {
+  const title = `${category.title[0].toUpperCase()}${category.title.slice(1)}`
   return (
     <>
       <div className={s.genres__header}>
@@ -39,7 +39,7 @@ function CategoryRow({ categories }) {
         }}
       >
         {
-          categories?.Movies.map((card) => (
+          category?.Movies.map((card) => (
             <SwiperSlide key={card.id}>
               <Card card={card} />
             </SwiperSlide>

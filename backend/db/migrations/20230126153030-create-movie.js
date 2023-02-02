@@ -47,6 +47,9 @@ module.exports = {
       path_video: {
         type: Sequelize.TEXT,
       },
+      source: {
+        type: Sequelize.TEXT,
+      },
       path_trailer: {
         type: Sequelize.TEXT,
       },
@@ -75,6 +78,12 @@ module.exports = {
         type: Sequelize.BOOLEAN,
       },
       isRecommended: {
+        type: Sequelize.BOOLEAN,
+      },
+      isWeekTop: {
+        type: Sequelize.BOOLEAN,
+      },
+      isHighRated: {
         type: Sequelize.BOOLEAN,
       },
       createdAt: {

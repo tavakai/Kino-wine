@@ -6,12 +6,15 @@ import { addToFavoritesAction, deleteFromFavoritesAction, getFavoritesAction } f
 import Player from '../Player/Player'
 import style from './MoviePage.module.css'
 import Reviews from '../Reviews/Reviews';
+import FullScreenPlayer from '../FullScreenPlayer/FullScreenPlayer';
 
 export default function DeskCard({ onefilm }) {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const favorites = useSelector((store) => store.favorites)
-  const [inFavorites, setInFavorites] = useState(false)
+  const { user } = useSelector((store) => store.auth)
+  const [inFavorites, setInFavorites] = useState(false);
+  const [fullscreen, setFullscreen] = useState(false);
 
   useEffect(() => {
     dispatch(getFavoritesAction());
@@ -31,6 +34,26 @@ export default function DeskCard({ onefilm }) {
     }
     return i === 0 ? JSON.parse(`${str}}`) : JSON.parse(`{${str.replace(']', '')}`)
   })
+  // Метод проверки кнопки и запуска полноэкранного плеера (ДОДЕЛАТЬ)
+  const checkSubscribe = () => {
+    setFullscreen(true);
+    // if (user.isSubscribed) {
+    //   setFullscreen(true);
+    // }
+    // return navigate('/shop')
+  }
+
+  const checkButtonText = () => {
+    if (user.isSubscribed) {
+      return 'Смотреть сейчас'
+    }
+    return 'Оформить подписку'
+  }
+  useEffect(() => {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setFullscreen(false);
+    })
+  }, [fullscreen])
 
   return (
     <div style={{ maxWidth: '1126px', width: '100%', margin: '0 auto' }}>
@@ -44,7 +67,7 @@ export default function DeskCard({ onefilm }) {
           >
             <img src={onefilm.image} className={style.style_img} alt="..." />
             <div className={style.showPromo__actions}>
-              <button onClick={() => navigate('/shop')} type="button" className={style.button_buy}>Купить и смотреть </button>
+              <button onClick={checkSubscribe} type="button" className={style.button_buy}>{checkButtonText()}</button>
               {inFavorites
                 ? (
                   <button onClick={() => dispatch(deleteFromFavoritesAction(onefilm.id))} data-v-58cacffa="" type="button" className={style.btn_add_to_favorite}>
@@ -71,7 +94,7 @@ export default function DeskCard({ onefilm }) {
             <div className={style.cardText}>
               {onefilm.description}
             </div>
-            <Player onefilm={onefilm} />
+            <Player onefilm={onefilm.path_trailer} full="/content/StarWars4.mp4" fullscreen={fullscreen} />
           </div>
           <div style={{ color: 'white' }}>
             <div>

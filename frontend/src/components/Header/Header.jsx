@@ -1,14 +1,17 @@
+/* eslint-disable import/no-duplicates */
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import s from './Header.module.css';
 import userIcon from '../../images/btn-icon.png';
 import logo from '../../images/logo.png';
+import logopng from '../../images/logopng.png';
 import SearchInput from '../SearchInput/SearchInput';
 import { setOpenSearch } from '../../services/actions/actions';
 
 function Header() {
   const { user, isLoggedIn } = useSelector((state) => state.auth);
+  console.log(user, 'user');
   const dispatch = useDispatch()
   const openSearch = useSelector((store) => store.openSearch)
 
@@ -52,14 +55,14 @@ function Header() {
                     </svg>
                   </button>
                 </li>
-                <li className={`${s.nav__item} ${s.nav__item_login}`}>
+                <li className={user.isSubscribed ? `${s.nav_item_two}` : `${s.nav__item} ${s.nav__item_login}`}>
                   <Link to="/profile">
-                    <button type="button" className={s.nav__btn}>
+                    <button type="button" className={user.isSubscribed ? `${s.nav__btn_two}` : `${s.nav__btn}`}>
                       <span className={s.nav__btn_text}>
                         {`${user?.name[0].toUpperCase()}${user?.name.slice(1)}`}
                       </span>
                       <div className={s.nav__icon_wrapper}>
-                        <img className={s.nav__btn_icon} src={userIcon} alt="icon-login" />
+                        <img className={s.nav__btn_icon} src={user.isSubscribed ? logopng : userIcon} alt="icon-login" />
                       </div>
                     </button>
                   </Link>

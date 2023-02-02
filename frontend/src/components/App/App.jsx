@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { authCheckAction } from '../../services/actions/actions';
 import MoviePage from '../MoviePage/MoviePage';
 
@@ -13,13 +13,20 @@ import s from './App.module.css';
 import Subscribe from '../Subscribe/Subscribe';
 import Favorites from '../Favorites/Favorites';
 import GenrePage from '../Genres/GenrePage/GenrePage';
+import Footer from '../../Footer/Footer';
 
 function App() {
   const dispatch = useDispatch();
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(authCheckAction());
   }, [])
+
+  useEffect(() => {
+    if (!isLoggedIn) navigate('/')
+  }, [isLoggedIn])
 
   return (
     <div className={s.App}>
@@ -35,6 +42,7 @@ function App() {
         <Route path="/shop" element={<Subscribe />} />
         <Route path="/genres/:id" element={<GenrePage />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

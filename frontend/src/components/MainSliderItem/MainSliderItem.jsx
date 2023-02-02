@@ -29,7 +29,7 @@ function MainSliderItem({ movie }) {
     <Link to={`/moviepage/${id}`} className={`main__slider_poster ${s.poster__wrapper}`}>
       <div className={s.poster__layout} />
       {
-        swiperSlide.isActive && <video className={s.poster__background_video} muted autoPlay loop src="./content/xmen.webm" />
+        swiperSlide.isActive && <video className={s.poster__background_video} muted autoPlay loop src="/content/fortune.mp4" />
       }
       <div className="" />
       <img className={`${s.poster__img} ${isHidden}`} src={image_horizontal} alt="poster movie background" />
@@ -37,7 +37,7 @@ function MainSliderItem({ movie }) {
       <p className={s.poster__description}>
         {shortDescription}
       </p>
-      <button type="button" onClick={() => console.log('Ckick to ', title)} className={s.poster__button}>
+      <button type="button" className={s.poster__button}>
         Подробнее
       </button>
     </Link>

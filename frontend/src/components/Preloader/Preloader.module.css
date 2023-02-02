@@ -5,8 +5,8 @@
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
+     box-sizing: border-box;
+    animation: rotation 4s linear infinite;
     }
 
     @keyframes rotation {
@@ -16,4 +16,4 @@
     100% {
         transform: rotate(360deg);
     }
-    } 
+    }  

@@ -1,16 +1,27 @@
 /* eslint-disable max-len */
 /* eslint-disable no-nested-ternary */
 import { useState } from 'react'
+import Done from '../Done/Done'
 import MyPaiment from '../MyPaiment/MyPaiment'
 import Preloader from '../Preloader/Preloader'
 import s from './Subscribe.module.css'
 
 export default function Subscribe() {
   const [modal, setModal] = useState('')
+
+  const controlHandler = (e) => {
+    if (e.target.className.includes('Subscribe_modal_window')) {
+      setModal(false)
+    }
+  }
   return (
     <div>
       {/* <div className={s.modal_window_dark}> */}
-      <div className={`${s.modal_window} ${modal ? `${s.modal_window_active} ${s.modal_window_dark}` : ''}`}>
+
+      <div
+        className={`${s.modal_window} ${modal ? `${s.modal_window_active} ${s.modal_window_dark}` : ''}`}
+        onClick={controlHandler}
+      >
 
         {/* <h2>{modal === 'Лайт' ? '100' : modal === 'Оптимум' ? '200' : '300'}</h2> */}
         {/* <h3 style={{ color: 'white' }}>Оплатить подписку</h3>
@@ -24,7 +35,7 @@ export default function Subscribe() {
 
         }}
         > */}
-        <MyPaiment />
+        <MyPaiment subscribeLevel={modal} />
 
         {/* </div> */}
       </div>
@@ -89,6 +100,7 @@ export default function Subscribe() {
           <div><button className={s.button_color} type="button" onClick={() => setModal('Премиум')}>Премиум</button></div>
         </div>
       </div>
+
     </div>
   )
 }

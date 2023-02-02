@@ -11,7 +11,6 @@ import SearchInput from '../SearchInput/SearchInput';
 function Header() {
   const { user, isLoggedIn } = useSelector((state) => state.auth);
   const [openSearch, setOpenSearch] = useState(false)
-
   return (
     <nav className={s.nav}>
       {
@@ -21,6 +20,7 @@ function Header() {
               <ul className={openSearch ? s.hidden : s.nav__bar}>
                 <li className={s.nav__item}>
                   <NavLink to="/" className={s.nav__logo}>
+                    {/* TODO: user.isSubscrebed ===>>> красим лого  */}
                     <img src={logo} className={s.nav__logo} alt="logo icon movie" />
                   </NavLink>
                 </li>

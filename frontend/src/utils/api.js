@@ -78,6 +78,11 @@ class Api {
   addReview(input) {
     return axios.post(`${this.baseUrl}/reviews`, input)
   }
+
+  // Изменение статуса подписки
+  setSubscribe(level) {
+    return axios.post(`${this.baseUrl}/subscribe`, { level })
+  }
 }
 
 const api = new Api({

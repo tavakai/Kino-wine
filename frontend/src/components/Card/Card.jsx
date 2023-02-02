@@ -1,31 +1,57 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import s from './Card.module.css';
+import iconAdd from '../../images/icon_favourite.png';
+import iconDelete from '../../images/icon_favourite_done.png';
+import { addToFavoritesAction, deleteFromFavoritesAction } from '../../services/actions/actions';
 
 function Card({ card }) {
   const {
-    id, image, title, rate,
+    id, image, title, rating,
   } = card;
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const favorites = useSelector((store) => store.favorites);
+  const [inFavorites, setInFavorites] = useState(false);
+  const handleVafourite = () => {
+    console.log(card);
+    if (favorites?.find((el) => el.id === id)) {
+      dispatch(addToFavoritesAction(card))
+    } else {
+      dispatch(deleteFromFavoritesAction(card))
+    }
+  }
   const checkEvent = (e) => {
     if (e.target.tagName === 'DIV') {
       navigate(`/moviepage/${id}`)
-    } else if (e.target.tagName === 'svg') {
-      console.log('add to favorite', title);
+    } else if (e.target.tagName === 'IMG') {
+      handleVafourite();
     }
   }
+  useEffect(() => {
+    if (favorites?.find((el) => el.id === id)) {
+      setInFavorites(true)
+    } else {
+      setInFavorites(false)
+    }
+  }, [favorites])
   return (
     <div onClick={(e) => checkEvent(e)} className={`${s.card__link} card__movie`}>
       <div className={s.card__interactive}>
-        <span className={s.card__rate}>{rate}</span>
-        <img src={image} alt="" className={s.card__image} />
+        <img src={image} alt="favourite icon" className={`${s.card__image}`} />
         <div className={s.card__display}>
-          <button onMouseDown={(e) => checkEvent(e)} type="button" className={s.btn_add_to_favorite}>
-            <svg width="50%" height="70%" viewBox="0 0 15 21" data-v-58cacffa="" fill="none" xmlns="http://www.w3.org/2000/svg" className="test">
-              <symbol id="paragraph"><path data-v-58cacffa="" d="M1.013 20.111l5.674-2.836a.7.7 0 01.626 0l5.674 2.837A.7.7 0 0014 19.485V2a2 2 0 00-2-2H2a2 2 0 00-2 2v17.485a.7.7 0 001.013.626zM7 14.883l-5 2.5V2h10v15.382z" fill="currentColor" /></symbol>
-              <use xlinkHref="#paragraph" />
-            </svg>
-          </button>
+          <div onMouseDown={(e) => checkEvent(e)} type="button" className={`${s.btn_add_to_favorite}`}>
+            <img className={s.card__display_favourite_icon} src={inFavorites ? iconDelete : iconAdd} alt="" />
+          </div>
+          <p className={s.card__display_title}>{title}</p>
+          <div className={s.card__display_rateWrapper}>
+            <p className={s.card__display_rate}>
+              🌟
+              {' '}
+              {rating}
+            </p>
+          </div>
         </div>
       </div>
       <p className={s.card__subtitle}>Подписка</p>

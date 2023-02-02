@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import s from './Header.module.css';
 import userIcon from '../../images/btn-icon.png';
 import logo from '../../images/logo.png';
-// import SearchResults from '../SearchResults/SearchResults';
-// import { getSearchedMoviesAction } from '../../services/actions/actions';
 import SearchInput from '../SearchInput/SearchInput';
+import { setOpenSearch } from '../../services/actions/actions';
 
 function Header() {
   const { user, isLoggedIn } = useSelector((state) => state.auth);
-  const [openSearch, setOpenSearch] = useState(false)
+  const dispatch = useDispatch()
+  const openSearch = useSelector((store) => store.openSearch)
+
   return (
     <nav className={s.nav}>
       {
@@ -44,7 +45,7 @@ function Header() {
                     type="submit"
                     title="Искать"
                     className={s.search__icon}
-                    onClick={() => setOpenSearch(true)}
+                    onClick={() => dispatch(setOpenSearch(true))}
                   >
                     <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" className={s.search__icon}>
                       <path d="M20.71 19.29L17 15.61A9 9 0 1015.61 17l3.68 3.68a1.002 1.002 0 001.42 0 1 1 0 000-1.39zM10 17a7 7 0 110-14 7 7 0 010 14z" fill="#fff" />
@@ -64,7 +65,7 @@ function Header() {
                   </Link>
                 </li>
               </ul>
-              <SearchInput openSearch={openSearch} setOpenSearch={setOpenSearch} />
+              <SearchInput /* openSearch={openSearch} setOpenSearch={setOpenSearch} */ />
             </>
           ) : (
             <>
@@ -80,7 +81,7 @@ function Header() {
                     type="submit"
                     title="Искать"
                     className={s.search__icon}
-                    onClick={() => setOpenSearch(true)}
+                    onClick={() => dispatch(setOpenSearch(true))}
                   >
                     <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" className={s.search__icon}>
                       <path d="M20.71 19.29L17 15.61A9 9 0 1015.61 17l3.68 3.68a1.002 1.002 0 001.42 0 1 1 0 000-1.39zM10 17a7 7 0 110-14 7 7 0 010 14z" fill="#fff" />
@@ -94,7 +95,7 @@ function Header() {
                   <NavLink to="/auth" className={s.nav__link}>Войти</NavLink>
                 </li>
               </ul>
-              <SearchInput openSearch={openSearch} setOpenSearch={setOpenSearch} />
+              <SearchInput /* openSearch={openSearch} setOpenSearch={setOpenSearch} */ />
             </>
           )
       }

@@ -37,6 +37,8 @@
   transition: background-color 0.5s ease;
   border-radius: 15px;
   display: flex;
+  flex-direction: column;
+  color: #fff;
   justify-content: center;
   align-items: center;
 }
@@ -45,8 +47,8 @@
   color: #fff;
   border: 1px solid #fff;
   background: transparent;
-  min-width: 50px;
-  height: 50px;
+  max-width: 36px;
+  width: 100%;
   padding-bottom: 2px;
   letter-spacing: 0;
   border-radius: 8px;
@@ -59,6 +61,12 @@
 .btn_add_to_favorite {
   opacity: 0;
   z-index: 10;
+}
+.favourite_icon_add {
+  background-image: url('../../images/icon_favourite.png');
+}
+.favourite_icon_delete {
+  background-image: url('../../images/icon_favourite_done.png');
 }
 .btn_add_to_favorite:hover {
   transform: scale(1.2,1.2);
@@ -91,4 +99,19 @@
   display: block;
   margin: 10px 0 0 10px;
   text-align: left;
+}
+.card__display_title {
+  font-size: 16px;
+}
+.card__display_rate {
+  font-size: 20px;
+}
+.card__display_rateWrapper {
+  width: 100px;
+  background: rgb(213,49,167);
+  background: radial-gradient(circle, rgba(213,49,167,0.28714408126531865) 0%, rgba(63,94,251,0) 100%);
+}
+.card__display_favourite_icon {
+  max-width: 28px;
+  width: 100%;
 }

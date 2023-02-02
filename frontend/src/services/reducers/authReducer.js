@@ -12,6 +12,7 @@ import {
 const initialState = {
   isLoggedIn: false,
   user: {
+    id: 0,
     name: '',
     email: '',
   },
@@ -27,6 +28,7 @@ export default function authReducer(state = initialState, action) {
         isLoggedIn: true,
         user: {
           ...state.user,
+          id: payload.id,
           name: payload.name,
           email: payload.email,
         },
@@ -37,6 +39,7 @@ export default function authReducer(state = initialState, action) {
         isLoggedIn: true,
         user: {
           ...state.user,
+          id: payload.id,
           name: payload.name,
           email: payload.email,
         },
@@ -47,6 +50,7 @@ export default function authReducer(state = initialState, action) {
         isLoggedIn: true,
         user: {
           ...state.user,
+          id: payload.id,
           name: payload.name,
           email: payload.email,
           isSubscribed: payload.isSubscribed,

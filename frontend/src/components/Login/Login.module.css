@@ -59,7 +59,8 @@
   line-height: 16px;
   height: 46px;
   margin: 10px 0px;
-  padding-left: 15px; 
+  padding-left: 15px;
+  color: #000;
 }
 .login__error {
   color: #A0A0A0;

@@ -44,7 +44,7 @@ function App() {
         <Route path="/genres/:id" element={<GenrePage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </div>
+     </div>
   );
 }
 

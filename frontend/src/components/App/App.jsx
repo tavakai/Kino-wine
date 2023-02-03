@@ -13,7 +13,7 @@ import s from './App.module.css';
 import Subscribe from '../Subscribe/Subscribe';
 import Favorites from '../Favorites/Favorites';
 import GenrePage from '../Genres/GenrePage/GenrePage';
-import Footer from '../../Footer/Footer';
+import NotFound from '../NotFoundPage/NotFoundPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +33,7 @@ function App() {
       <Header />
       {/* <StreamComponentTest /> */}
       <Routes>
+
         <Route path="/" element={<Main />} />
         <Route path="/auth" element={<Login />} />
         <Route path="/reg" element={<Register />} />
@@ -41,9 +42,9 @@ function App() {
         <Route path="/moviepage/:id" element={<MoviePage />} />
         <Route path="/shop" element={<Subscribe />} />
         <Route path="/genres/:id" element={<GenrePage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
-      {/* <Footer /> */}
-    </div>
+     </div>
   );
 }
 

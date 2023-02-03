@@ -6,6 +6,7 @@
 
 .review_header {
   padding-left: 16px;
+  padding-bottom: 30px;
 }
 
 .reviewAll__btnContainer {
@@ -26,6 +27,7 @@
   justify-content: center;
   border-style: solid;
   cursor: pointer;
+  margin-bottom: 30px;
 }
 
 .review__btn:hover {

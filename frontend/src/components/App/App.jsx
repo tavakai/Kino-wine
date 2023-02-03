@@ -13,8 +13,8 @@ import s from './App.module.css';
 import Subscribe from '../Subscribe/Subscribe';
 import Favorites from '../Favorites/Favorites';
 import GenrePage from '../Genres/GenrePage/GenrePage';
-import Footer from '../../Footer/Footer';
 import Footer2 from '../Footer2/Footer2';
+import NotFound from '../NotFoundPage/NotFoundPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -43,6 +43,7 @@ function App() {
           <Route path="/moviepage/:id" element={<MoviePage />} />
           <Route path="/shop" element={<Subscribe />} />
           <Route path="/genres/:id" element={<GenrePage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       <div className="footer__wrapper">

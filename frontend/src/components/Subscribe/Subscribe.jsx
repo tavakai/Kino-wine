@@ -60,7 +60,8 @@ export default function Subscribe() {
         }}
         >
           <div><img style={{ maxWidth: '250px' }} src="https://ae04.alicdn.com/kf/H0eab35f558eb459c9c8deb5ac7af3bd4e/Marvel.jpg" alt="..." /></div>
-          <div style={{ color: 'white', marginTop: '13px' }}>Список кино и сериалов на кажый день в формате  HD на 1 месяц</div>
+          <div style={{ color: 'white' }}>Список кино и сериалов на кажый день в формате  HD на 1 месяц</div>
+          <div style={{ color: 'white' }}>1 месяц/99 руб</div>
           <div><button className={s.button_color} type="button" onClick={() => setModal('Лайт')}>Лайт</button></div>
         </div>
         <div style={{
@@ -79,7 +80,8 @@ export default function Subscribe() {
         }}
         >
           <div><img style={{ maxWidth: '250px' }} src="https://avatars.dzeninfra.ru/get-zen_doc/1866101/pub_5e1e443c0ce57b00ae1a3315_5e1e7c47e4fff000adc2b035/scale_1200" alt="..." /></div>
-          <div style={{ color: 'white', marginTop: '29px' }}>Список кино и сериалов на кажый день в формате  HD на 3 месяца </div>
+          <div style={{ color: 'white' }}>Список кино и сериалов на кажый день в формате  HD на 3 месяца </div>
+          <div style={{ color: 'white' }}>3 месяца/199 руб</div>
           <div><button className={s.button_color} type="button" onClick={() => setModal('Оптимум')}>Оптимум</button></div>
         </div>
         <div style={{
@@ -98,9 +100,14 @@ export default function Subscribe() {
 
         }}
         >
-          <div><img style={{ maxWidth: '250px' }} src="https://ae04.alicdn.com/kf/H199e19106975487788419462a7e01260o/-.jpg" alt="..." /></div>
-          <div style={{ color: 'white', marginBottom: '55px' }}>Список кино и сериалов на кажый день в формате 4K на 3 месяца</div>
+          <div><img style={{ maxWidth: '250px' }} src="https://ae04.alicdn.com/kf/H0eab35f558eb459c9c8deb5ac7af3bd4e/Marvel.jpg" alt="..." /></div>
+
+          <div style={{ color: 'white' }}>Список кино и сериалов на кажый день в формате 4K на 3 месяца</div>
+          <div>
+            <div style={{ color: 'white' }}>3 месяца/399 руб</div>
+          </div>
           <div><button className={s.button_color} type="button" onClick={() => setModal('Премиум')}>Премиум</button></div>
+
         </div>
       </div>
 

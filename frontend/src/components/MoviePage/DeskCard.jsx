@@ -37,7 +37,7 @@ export default function DeskCard({ onefilm }) {
   // Метод проверки кнопки и запуска полноэкранного плеера (ДОДЕЛАТЬ)
   const checkSubscribe = () => {
     if (user.isSubscribed) {
-      setFullscreen(true);
+      return setFullscreen(true);
     }
     return navigate('/shop')
   }
@@ -131,6 +131,7 @@ export default function DeskCard({ onefilm }) {
         </div>
       </div>
       <Reviews id={onefilm.id} />
+      {/* <div className={`${style.layout} ${fullscreen && style.layout_visible}`} /> */}
     </div>
   )
 }

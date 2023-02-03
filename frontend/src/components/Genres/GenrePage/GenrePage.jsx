@@ -13,7 +13,10 @@ export default function GenrePage() {
     dispatch(getGenreMoviesAction(id))
   }, [])
   return (
-    <div style={{ color: 'white', maxWidth: '1126px', width: '100%' }}>
+    <div style={{
+      color: 'white', maxWidth: '1126px', width: '100%', margin: '0 auto',
+    }}
+    >
       <div className={s.container}>
         {genreMovies?.length
           ? genreMovies.map((card) => (

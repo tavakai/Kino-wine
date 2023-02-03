@@ -10,20 +10,20 @@ export default function NotFound() {
     <div className="notFound">
       <div>
       <h1>
-        Вы кто такие? Я Вас не звал!
+        Потерялись? Сначала Посмотрите видео 😉
         {' '}
       </h1>
-      <img style={{ width: 500 }} src="https://memepedia.ru/wp-content/uploads/2018/01/%D0%B2%D1%8B-%D0%BA%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%B8%D0%B5-%D1%8F-%D0%B2%D0%B0%D1%81-%D0%BD%D0%B5-%D0%B7%D0%B2%D0%B0%D0%BB-1.png" alt="..." />
-      <p>Идите сюда пожалуйста &darr;</p>
-      <div className="link">
+      <div style={{ marginTop: '75px', marginRight: 'auto', marginLeft: 'auto' }}>
+        <video src="/video/vid.mp4" controls poster='https://cdn.dribbble.com/users/67325/screenshots/3488120/attachments/769962/404.jpg?compress=1&resize=400x300&vertical=top' />
+      </div>
+
+      <p style={{ marginTop: '30px' }}>Идите сюда пожалуйста &darr;</p>
+      <div className="link" style={{ marginTop: '30px' }}>
 
 <Link to="/">Вам тут самое место!</Link>
 <Link to="/favorite">Избранное</Link>
 <Link to="/profile">Профиль</Link>
       </div>
-      </div>
-      <div style={{ marginTop: '75px', marginRight: '150px' }}>
-        <video src="/video/we.mp4" controls />
       </div>
 
     </div>

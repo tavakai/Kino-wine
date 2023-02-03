@@ -1,0 +1,16 @@
+.notFound {
+    color: white;
+    display: flex;
+    justify-content: space-around;
+}
+.link a {
+    margin: 30px;
+    color: white;
+    
+}
+video {
+    height: 400px;
+   
+
+
+}

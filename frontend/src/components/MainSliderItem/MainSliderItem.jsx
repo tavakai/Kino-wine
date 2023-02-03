@@ -24,7 +24,7 @@ function MainSliderItem({ movie }) {
       clearInterval();
     }
   })
-  console.log(movie);
+
   return (
     <Link to={`/moviepage/${id}`} className={`main__slider_poster ${s.poster__wrapper}`}>
       <div className={s.poster__layout} />

@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import s from './Header.module.css';
 import userIcon from '../../images/btn-icon.png';
-import logo from '../../images/logo.png';
+import logo from '../../images/kino_logo_white.png';
 import logopng from '../../images/logopng.png';
 import SearchInput from '../SearchInput/SearchInput';
 import { setOpenSearch } from '../../services/actions/actions';

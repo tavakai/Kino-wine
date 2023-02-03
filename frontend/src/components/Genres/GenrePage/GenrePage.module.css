@@ -10,5 +10,6 @@
 
 .card__item {
   margin: 25px 25px;
-  width: 15vw;
+  width: 100%;
+  max-width: 200px;
 }

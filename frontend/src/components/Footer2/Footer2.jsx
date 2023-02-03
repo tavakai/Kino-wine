@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import s from './Footer2.module.css';
-import logo from '../../images/logo.png';
+import logo from '../../images/kino_logo_white.png';
 
 function Footer2() {
   return (

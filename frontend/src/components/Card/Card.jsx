@@ -15,7 +15,6 @@ function Card({ card }) {
   const favorites = useSelector((store) => store.favorites);
   const [inFavorites, setInFavorites] = useState(false);
   const handleVafourite = () => {
-    console.log(card);
     if (favorites?.find((el) => el.id === id)) {
       dispatch(addToFavoritesAction(card))
     } else {
@@ -51,7 +50,11 @@ function Card({ card }) {
           </div>
         </div>
       </div>
-      <p className={s.card__subtitle}>Подписка</p>
+      <p className={s.card__subtitle}>
+        {
+          inFavorites ? <span style={{ color: 'green' }}>В подписке</span> : 'Подписка'
+        }
+      </p>
     </Link>
   );
 }
